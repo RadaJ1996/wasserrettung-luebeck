@@ -7,280 +7,391 @@
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#eef3f7;color:#17232e}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#eef3f7;
+color:#17232e
+}
+
+button,input,select,textarea{
+font:inherit
+}
+
+button{
+cursor:pointer
+}
+
+/* LOGIN */
 
 .login{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#052d49,#087fc7)
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#052d49,#087fc7)
 }
 
 .login-box{
-    width:420px;
-    max-width:92%;
-    background:white;
-    padding:35px;
-    border-radius:16px;
-    box-shadow:0 20px 60px #0005
+width:420px;
+max-width:92%;
+background:#fff;
+padding:35px;
+border-radius:16px;
+box-shadow:0 20px 60px #0005
+}
+
+.login-box h1{
+margin-bottom:5px
 }
 
 .login-box input{
-    width:100%;
-    padding:12px;
-    margin:7px 0 15px;
-    border:1px solid #d5e0e8;
-    border-radius:8px
+width:100%;
+padding:12px;
+margin:7px 0 15px;
+border:1px solid #d5e0e8;
+border-radius:8px
 }
 
 .primary{
-    background:#087bc1;
-    color:white;
-    border:0;
-    padding:11px 16px;
-    border-radius:8px;
-    font-weight:bold
+background:#087bc1;
+color:white;
+border:0;
+padding:11px 16px;
+border-radius:8px;
+font-weight:bold
 }
 
 .secondary{
-    background:white;
-    border:1px solid #d5e0e8;
-    padding:10px 15px;
-    border-radius:8px
+background:white;
+border:1px solid #d5e0e8;
+padding:10px 15px;
+border-radius:8px
 }
 
-#app{display:none}
+/* APP */
+
+#app{
+display:none
+}
 
 .sidebar{
-    position:fixed;
-    left:0;
-    top:0;
-    bottom:0;
-    width:250px;
-    background:#062e4b;
-    color:white;
-    padding:20px;
-    overflow-y:auto
+position:fixed;
+left:0;
+top:0;
+bottom:0;
+width:275px;
+background:#062e4b;
+color:white;
+padding:20px 15px;
+overflow-y:auto
 }
 
-.sidebar h2{margin:0 0 5px}
-.sidebar small{color:#8fd1f5}
+.sidebar-logo{
+padding:10px;
+margin-bottom:15px
+}
 
-.nav{margin-top:25px}
+.sidebar-logo h2{
+margin:0
+}
+
+.sidebar-logo small{
+color:#8fd1f5
+}
+
+.category{
+margin-top:20px;
+margin-bottom:5px;
+padding:0 10px;
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:1px;
+color:#7eb5d2;
+font-weight:bold
+}
 
 .nav button{
-    width:100%;
-    text-align:left;
-    background:transparent;
-    color:white;
-    border:0;
-    padding:12px;
-    border-radius:8px;
-    margin:3px 0
+width:100%;
+text-align:left;
+background:transparent;
+color:white;
+border:0;
+padding:11px;
+border-radius:8px;
+margin:2px 0
 }
 
 .nav button:hover,
 .nav button.active{
-    background:#087bc1
+background:#087bc1
 }
 
 .main{
-    margin-left:250px;
-    padding:25px
+margin-left:275px;
+padding:25px
 }
 
 .topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px
 }
 
-.page{display:none}
-.page.active{display:block}
+.page{
+display:none
+}
+
+.page.active{
+display:block
+}
 
 .card{
-    background:white;
-    border:1px solid #d8e2e9;
-    border-radius:13px;
-    padding:20px;
-    margin-bottom:16px
+background:white;
+border:1px solid #d8e2e9;
+border-radius:13px;
+padding:20px;
+margin-bottom:16px
 }
 
 .stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px
 }
 
 .stat{
-    background:white;
-    border:1px solid #d8e2e9;
-    border-radius:13px;
-    padding:18px
+background:white;
+border:1px solid #d8e2e9;
+border-radius:13px;
+padding:18px
 }
 
 .stat-number{
-    color:#087bc1;
-    font-size:30px;
-    font-weight:bold;
-    margin-top:8px
+color:#087bc1;
+font-size:30px;
+font-weight:bold;
+margin-top:8px
 }
 
 .toolbar{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:15px
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:15px
 }
 
 table{
-    width:100%;
-    border-collapse:collapse
+width:100%;
+border-collapse:collapse
 }
 
 th,td{
-    padding:11px;
-    text-align:left;
-    border-bottom:1px solid #e4ebef
+padding:11px;
+text-align:left;
+border-bottom:1px solid #e4ebef
 }
 
-th{color:#71808d}
+th{
+color:#71808d
+}
 
 .badge{
-    background:#e5f4ff;
-    color:#0870aa;
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:12px
+background:#e5f4ff;
+color:#0870aa;
+padding:5px 9px;
+border-radius:20px;
+font-size:12px;
+display:inline-block;
+margin:2px
 }
+
+.notice{
+padding:13px;
+border-radius:9px;
+background:#edf7ff;
+border-left:4px solid #087bc1;
+margin-bottom:10px
+}
+
+.warning{
+padding:13px;
+border-radius:9px;
+background:#fff7df;
+border-left:4px solid #e5a900
+}
+
+/* MODAL */
 
 .modal{
-    position:fixed;
-    inset:0;
-    background:#0009;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    z-index:100
+position:fixed;
+inset:0;
+background:#0009;
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:100
 }
 
-.modal.active{display:flex}
+.modal.active{
+display:flex
+}
 
 .modal-box{
-    background:white;
-    width:760px;
-    max-width:100%;
-    max-height:90vh;
-    overflow:auto;
-    border-radius:15px;
-    padding:25px
+background:white;
+width:800px;
+max-width:100%;
+max-height:90vh;
+overflow:auto;
+border-radius:15px;
+padding:25px
 }
 
 .form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px
 }
 
 .form-group label{
-    display:block;
-    font-size:13px;
-    color:#667581;
-    margin-bottom:5px
+display:block;
+font-size:13px;
+color:#667581;
+margin-bottom:5px
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
-    width:100%;
-    padding:10px;
-    border:1px solid #d5e0e8;
-    border-radius:8px
+width:100%;
+padding:10px;
+border:1px solid #d5e0e8;
+border-radius:8px
 }
 
-.form-group textarea{min-height:120px}
+.form-group textarea{
+min-height:120px
+}
 
-.full{grid-column:1/-1}
+.full{
+grid-column:1/-1
+}
 
 .modal-actions{
-    display:flex;
-    justify-content:flex-end;
-    gap:10px;
-    margin-top:20px
+display:flex;
+justify-content:flex-end;
+gap:10px;
+margin-top:20px
 }
 
 .checkbox-list{
-    border:1px solid #d5e0e8;
-    border-radius:8px;
-    padding:10px;
-    max-height:230px;
-    overflow-y:auto
+border:1px solid #d5e0e8;
+border-radius:8px;
+padding:10px;
+max-height:230px;
+overflow-y:auto
 }
 
 .checkbox-item{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:6px
+display:flex;
+align-items:center;
+gap:8px;
+padding:6px
 }
 
 .checkbox-item input{
-    width:auto
+width:auto
 }
 
-.vehicle-crew{
-    border:1px solid #dce5ea;
-    border-radius:9px;
-    padding:12px;
-    margin-bottom:10px
+.vehicle-box{
+border:1px solid #dce5ea;
+border-radius:9px;
+padding:12px;
+margin-bottom:10px
 }
 
 .crew-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:8px
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:8px
 }
 
 .archive-item{
-    border-left:5px solid #087bc1;
-    padding:15px;
-    margin-bottom:12px;
-    background:#f8fbfd;
-    border-radius:8px
+border-left:5px solid #087bc1;
+padding:15px;
+margin-bottom:12px;
+background:#f8fbfd;
+border-radius:8px
 }
 
 .delete{
-    background:#fde8e6;
-    color:#a83227;
-    border:0;
-    padding:7px 10px;
-    border-radius:6px
+background:#fde8e6;
+color:#a83227;
+border:0;
+padding:7px 10px;
+border-radius:6px
 }
 
-@media(max-width:850px){
-    .sidebar{width:70px;padding:10px}
-    .sidebar h2,.sidebar small{display:none}
-    .main{margin-left:70px}
-    .stats{grid-template-columns:1fr 1fr}
+.admin-only{
+border-left:4px solid #c43b3b
+}
+
+.empty{
+padding:30px;
+text-align:center;
+color:#788792
+}
+
+@media(max-width:900px){
+
+.sidebar{
+width:75px
+}
+
+.sidebar-logo h2,
+.sidebar-logo small,
+.category{
+display:none
+}
+
+.main{
+margin-left:75px
+}
+
+.stats{
+grid-template-columns:1fr 1fr
+}
+
 }
 
 @media(max-width:600px){
-    .form-grid{grid-template-columns:1fr}
-    .full{grid-column:auto}
-    .crew-row{grid-template-columns:1fr}
+
+.form-grid{
+grid-template-columns:1fr
+}
+
+.full{
+grid-column:auto
+}
+
+.crew-row{
+grid-template-columns:1fr
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
+
+<!-- =========================
+LOGIN
+========================= -->
 
 <div id="loginPage" class="login">
 
@@ -292,10 +403,19 @@ th{color:#71808d}
 <p>Interne Verwaltungsplattform</p>
 
 <label>Benutzername</label>
-<input id="loginUser" value="admin">
+
+<input
+id="loginUser"
+value="admin"
+>
 
 <label>Passwort</label>
-<input id="loginPassword" type="password">
+
+<input
+id="loginPassword"
+type="password"
+placeholder="Passwort"
+>
 
 <button
 class="primary"
@@ -308,58 +428,158 @@ Anmelden
 <p id="loginError"></p>
 
 </div>
+
 </div>
 
 
-<!-- APP -->
+<!-- =========================
+APP
+========================= -->
 
 <div id="app">
 
 <aside class="sidebar">
 
-<h2>Wasserrettung</h2>
+<div class="sidebar-logo">
+
+<h2>🌊 Wasserrettung</h2>
+
 <small>Hansestadt Lübeck</small>
+
+</div>
+
 
 <div class="nav">
 
-<button class="active" onclick="showPage('dashboard',this)">
+
+<!-- ÜBERSICHT -->
+
+<div class="category">
+Übersicht
+</div>
+
+<button
+class="active"
+onclick="showPage('dashboard',this)"
+>
 🏠 Dashboard
 </button>
 
-<button onclick="showPage('members',this)">
-👥 Mitarbeiter
+<button
+onclick="showPage('documents',this)"
+>
+📂 Mitarbeiterablage
 </button>
 
-<button onclick="showPage('departments',this)">
-🏢 Abteilungen
-</button>
-
-<button onclick="showPage('functions',this)">
-🧑‍🚒 Funktionen
-</button>
-
-<button onclick="showPage('qualifications',this)">
-🏅 Qualifikationen
-</button>
-
-<button onclick="showPage('courses',this)">
-🎓 Lehrgänge
-</button>
-
-<button onclick="showPage('vehicles',this)">
-🚤 Fahrzeuge
-</button>
-
-<button onclick="showPage('duties',this)">
+<button
+onclick="showPage('dutyplan',this)"
+>
 📅 Dienstplan
 </button>
 
-<button onclick="showPage('reports',this)">
-🚨 Einsätze
+<button
+onclick="showPage('courses',this)"
+>
+🎓 Lehrgänge
 </button>
 
-<button onclick="showPage('archive',this)">
+
+<!-- EINSATZ -->
+
+<div class="category">
+Einsatz
+</div>
+
+<button
+onclick="showPage('vehicleAssignment',this)"
+>
+🚤 Fahrzeugeinteilung
+</button>
+
+<button
+onclick="showPage('operations',this)"
+>
+🚨 Einsatz
+</button>
+
+<button
+onclick="showPage('archive',this)"
+>
 📁 Einsatzarchiv
+</button>
+
+<button
+onclick="showPage('clothing',this)"
+>
+👕 Kleiderkammer
+</button>
+
+<button
+onclick="showPage('equipment',this)"
+>
+🧰 Gerätewarte
+</button>
+
+<button
+onclick="showPage('logbook',this)"
+>
+📖 Wachbuch
+</button>
+
+
+<!-- ORGANISATION -->
+
+<div class="category">
+Organisation & Verwaltung
+</div>
+
+<button
+class="admin-button"
+onclick="adminPage('vehicleAdmin',this)"
+>
+🚤 Fahrzeugverwaltung
+</button>
+
+<button
+class="admin-button"
+onclick="adminPage('stationAdmin',this)"
+>
+🏢 Wachverwaltung
+</button>
+
+<button
+class="admin-button"
+onclick="adminPage('archiveAdmin',this)"
+>
+🗄️ Archivverwaltung
+</button>
+
+<button
+class="admin-button"
+onclick="adminPage('memberAdmin',this)"
+>
+👥 Mitarbeiterverwaltung
+</button>
+
+<button
+class="admin-button"
+onclick="adminPage('qualificationAdmin',this)"
+>
+🏅 Qualifikationsverwaltung
+</button>
+
+<button
+class="admin-button"
+onclick="adminPage('announcements',this)"
+>
+📢 Ankündigungen
+</button>
+
+<button
+class="admin-button"
+onclick="adminPage('courseAdmin',this)"
+>
+🎓 Lehrgangsverwaltung
 </button>
 
 </div>
@@ -371,265 +591,168 @@ Anmelden
 
 <div class="topbar">
 
-<h1 id="pageTitle">Dashboard</h1>
+<h1 id="pageTitle">
+Dashboard
+</h1>
 
-<button class="secondary" onclick="logout()">
+<button
+class="secondary"
+onclick="logout()"
+>
 Abmelden
 </button>
 
 </div>
 
 
-<!-- DASHBOARD -->
+<!-- =========================
+DASHBOARD
+========================= -->
 
-<section id="dashboard" class="page active">
+<section
+id="dashboard"
+class="page active"
+>
 
 <div class="card">
 
-<h2>Wasserrettung Hansestadt Lübeck</h2>
+<h2>
+Willkommen bei der Wasserrettung Hansestadt Lübeck
+</h2>
 
 <p>
-Zentrale Verwaltung für Personal, Dienste,
-Fahrzeuge, Qualifikationen und Einsätze.
+Hier findest du alle wichtigen Informationen
+für deinen Dienst.
 </p>
 
 </div>
+
 
 <div class="stats">
 
 <div class="stat">
 Mitarbeiter
-<div id="statMembers" class="stat-number">0</div>
+<div
+id="statMembers"
+class="stat-number"
+>
+0
+</div>
 </div>
 
 <div class="stat">
 Fahrzeuge
-<div id="statVehicles" class="stat-number">0</div>
+<div
+id="statVehicles"
+class="stat-number"
+>
+0
+</div>
 </div>
 
 <div class="stat">
 Dienste
-<div id="statDuties" class="stat-number">0</div>
+<div
+id="statDuties"
+class="stat-number"
+>
+0
+</div>
 </div>
 
 <div class="stat">
 Einsätze
-<div id="statReports" class="stat-number">0</div>
+<div
+id="statReports"
+class="stat-number"
+>
+0
 </div>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+📅 Nächste Dienste
+</h2>
+
+<div id="dashboardDuties"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+🚤 Aktuelle Fahrzeugbesetzung
+</h2>
+
+<div id="dashboardVehicles"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+📢 Wichtige Dinge
+</h2>
+
+<div id="dashboardAnnouncements"></div>
 
 </div>
 
 </section>
 
 
-<!-- MITARBEITER -->
+<!-- =========================
+MITARBEITERABLAGE
+========================= -->
 
-<section id="members" class="page">
+<section
+id="documents"
+class="page"
+>
 
 <div class="card">
 
-<div class="toolbar">
+<h2>
+📂 Mitarbeiterablage
+</h2>
+
+<p>
+Hier können später Einsatzpläne, Dokumente,
+Dienstanweisungen und weitere Dateien abgelegt werden.
+</p>
 
 <button
 class="primary"
-onclick="openModal('member')"
+onclick="openModal('document')"
 >
-+ Mitarbeiter
++ Dokument hinzufügen
 </button>
 
 </div>
 
-<table>
-
-<thead>
-
-<tr>
-<th>Name</th>
-<th>Dienstgrad</th>
-<th>Funktion</th>
-<th>Abteilung</th>
-<th>Qualifikationen</th>
-<th></th>
-</tr>
-
-</thead>
-
-<tbody id="memberTable"></tbody>
-
-</table>
-
-</div>
+<div
+id="documentsList"
+class="card"
+></div>
 
 </section>
 
 
-<!-- ABTEILUNGEN -->
+<!-- =========================
+DIENSTPLAN
+========================= -->
 
-<section id="departments" class="page">
-
-<div class="card">
-
-<button
-class="primary"
-onclick="openModal('department')"
+<section
+id="dutyplan"
+class="page"
 >
-+ Abteilung
-</button>
-
-<table>
-
-<thead>
-<tr>
-<th>Abteilung</th>
-<th>Beschreibung</th>
-<th></th>
-</tr>
-</thead>
-
-<tbody id="departmentTable"></tbody>
-
-</table>
-
-</div>
-
-</section>
-
-
-<!-- FUNKTIONEN -->
-
-<section id="functions" class="page">
-
-<div class="card">
-
-<button
-class="primary"
-onclick="openModal('function')"
->
-+ Funktion
-</button>
-
-<table>
-
-<thead>
-<tr>
-<th>Funktion</th>
-<th>Abteilung</th>
-<th></th>
-</tr>
-</thead>
-
-<tbody id="functionTable"></tbody>
-
-</table>
-
-</div>
-
-</section>
-
-
-<!-- QUALIFIKATIONEN -->
-
-<section id="qualifications" class="page">
-
-<div class="card">
-
-<button
-class="primary"
-onclick="openModal('qualification')"
->
-+ Qualifikation
-</button>
-
-<table>
-
-<thead>
-<tr>
-<th>Qualifikation</th>
-<th>Beschreibung</th>
-<th></th>
-</tr>
-</thead>
-
-<tbody id="qualificationTable"></tbody>
-
-</table>
-
-</div>
-
-</section>
-
-
-<!-- LEHRGÄNGE -->
-
-<section id="courses" class="page">
-
-<div class="card">
-
-<button
-class="primary"
-onclick="openModal('course')"
->
-+ Lehrgang
-</button>
-
-<table>
-
-<thead>
-<tr>
-<th>Lehrgang</th>
-<th>Qualifikation</th>
-<th>Start</th>
-<th>Ende</th>
-<th></th>
-</tr>
-</thead>
-
-<tbody id="courseTable"></tbody>
-
-</table>
-
-</div>
-
-</section>
-
-
-<!-- FAHRZEUGE -->
-
-<section id="vehicles" class="page">
-
-<div class="card">
-
-<button
-class="primary"
-onclick="openModal('vehicle')"
->
-+ Fahrzeug / Boot
-</button>
-
-<table>
-
-<thead>
-<tr>
-<th>Fahrzeug</th>
-<th>Typ</th>
-<th>Funkrufname</th>
-<th>Positionen</th>
-<th></th>
-</tr>
-</thead>
-
-<tbody id="vehicleTable"></tbody>
-
-</table>
-
-</div>
-
-</section>
-
-
-<!-- DIENSTPLAN -->
-
-<section id="duties" class="page">
 
 <div class="card">
 
@@ -642,21 +765,37 @@ onclick="openModal('duty')"
 + Dienst erstellen
 </button>
 
+<select
+id="dutyStationFilter"
+onchange="renderDutyplan()"
+>
+<option value="">
+Alle Wachen
+</option>
+</select>
+
 </div>
 
 <table>
 
 <thead>
+
 <tr>
+
 <th>Datum</th>
+<th>Wache</th>
 <th>Dienst</th>
 <th>Uhrzeit</th>
 <th>Fahrzeuge</th>
 <th></th>
+
 </tr>
+
 </thead>
 
-<tbody id="dutyTable"></tbody>
+<tbody
+id="dutyTable"
+></tbody>
 
 </table>
 
@@ -665,37 +804,162 @@ onclick="openModal('duty')"
 </section>
 
 
-<!-- EINSÄTZE -->
+<!-- =========================
+LEHRGÄNGE
+========================= -->
 
-<section id="reports" class="page">
+<section
+id="courses"
+class="page"
+>
 
 <div class="card">
 
-<div class="toolbar">
+<h2>
+🎓 Verfügbare Lehrgänge
+</h2>
+
+<p>
+Hier können sich Mitarbeiter für freigegebene
+Lehrgänge anmelden.
+</p>
+
+<div id="courseList"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+FAHRZEUGEINTEILUNG
+========================= -->
+
+<section
+id="vehicleAssignment"
+class="page"
+>
+
+<div class="card">
+
+<h2>
+🚤 Fahrzeugeinteilung
+</h2>
+
+<p>
+Fahrzeuge auswählen und die Besatzung
+auf die jeweiligen Positionen setzen.
+</p>
+
+<button
+class="primary"
+onclick="openModal('assignment')"
+>
++ Fahrzeugeinteilung erstellen
+</button>
+
+</div>
+
+<div
+id="assignmentList"
+class="card"
+></div>
+
+</section>
+
+
+<!-- =========================
+EINSATZ
+========================= -->
+
+<section
+id="operations"
+class="page"
+>
+
+<div class="card">
+
+<h2>
+🚨 Einsatz
+</h2>
 
 <button
 class="primary"
 onclick="openModal('report')"
 >
-🚨 Neuer Einsatz
++ Neuer Einsatz
 </button>
 
 </div>
 
+<div
+id="activeOperations"
+></div>
+
+</section>
+
+
+<!-- =========================
+ARCHIV
+========================= -->
+
+<section
+id="archive"
+class="page"
+>
+
+<div class="card">
+
+<h2>
+📁 Einsatzarchiv
+</h2>
+
+<div
+id="archiveList"
+></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+KLEIDERKAMMER
+========================= -->
+
+<section
+id="clothing"
+class="page"
+>
+
+<div class="card">
+
+<h2>
+👕 Kleiderkammer
+</h2>
+
+<button
+class="primary"
+onclick="openModal('clothing')"
+>
++ Kleidungsstück anlegen
+</button>
+
 <table>
 
 <thead>
+
 <tr>
-<th>Einsatznummer</th>
-<th>Datum</th>
-<th>Stichwort</th>
-<th>Ort</th>
-<th>Fahrzeuge</th>
-<th>Status</th>
+<th>Kleidung</th>
+<th>Größe</th>
+<th>Bestand</th>
 </tr>
+
 </thead>
 
-<tbody id="reportTable"></tbody>
+<tbody
+id="clothingTable"
+></tbody>
 
 </table>
 
@@ -704,28 +968,389 @@ onclick="openModal('report')"
 </section>
 
 
-<!-- ARCHIV -->
+<!-- =========================
+GERÄTEWARTE
+========================= -->
 
-<section id="archive" class="page">
+<section
+id="equipment"
+class="page"
+>
 
 <div class="card">
 
-<h2>📁 Einsatzarchiv</h2>
+<h2>
+🧰 Gerätewarte
+</h2>
 
-<div id="archive"></div>
+<button
+class="primary"
+onclick="openModal('equipment')"
+>
++ Gerät anlegen
+</button>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Gerät</th>
+<th>Standort</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody
+id="equipmentTable"
+></tbody>
+
+</table>
 
 </div>
 
 </section>
+
+
+<!-- =========================
+WACHBUCH
+========================= -->
+
+<section
+id="logbook"
+class="page"
+>
+
+<div class="card">
+
+<h2>
+📖 Wachbuch
+</h2>
+
+<button
+class="primary"
+onclick="openModal('logbook')"
+>
++ Wachbucheintrag
+</button>
+
+<div id="logbookList"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+FAHRZEUGVERWALTUNG
+========================= -->
+
+<section
+id="vehicleAdmin"
+class="page"
+>
+
+<div class="card admin-only">
+
+<h2>
+🚤 Fahrzeugverwaltung
+</h2>
+
+<p>
+Nur Systemadministratoren.
+</p>
+
+<button
+class="primary"
+onclick="openModal('vehicle')"
+>
++ Fahrzeug / Boot
+</button>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Fahrzeug</th>
+<th>Typ</th>
+<th>Funkrufname</th>
+<th>Wache</th>
+<th>Besatzungspositionen</th>
+<th></th>
+</tr>
+
+</thead>
+
+<tbody
+id="vehicleTable"
+></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+WACHVERWALTUNG
+========================= -->
+
+<section
+id="stationAdmin"
+class="page"
+>
+
+<div class="card admin-only">
+
+<h2>
+🏢 Wachverwaltung
+</h2>
+
+<button
+class="primary"
+onclick="openModal('station')"
+>
++ Wache
+</button>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Wache</th>
+<th>Adresse</th>
+<th>Beschreibung</th>
+<th></th>
+</tr>
+
+</thead>
+
+<tbody
+id="stationTable"
+></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+ARCHIVVERWALTUNG
+========================= -->
+
+<section
+id="archiveAdmin"
+class="page"
+>
+
+<div class="card admin-only">
+
+<h2>
+🗄️ Archivverwaltung
+</h2>
+
+<p>
+Systemadministratoren können hier das
+Einsatzarchiv verwalten.
+</p>
+
+<button
+class="primary"
+onclick="exportArchive()"
+>
+Archiv exportieren
+</button>
+
+<button
+class="secondary"
+onclick="clearArchive()"
+>
+Archiv leeren
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+MITARBEITERVERWALTUNG
+========================= -->
+
+<section
+id="memberAdmin"
+class="page"
+>
+
+<div class="card admin-only">
+
+<h2>
+👥 Mitarbeiterverwaltung
+</h2>
+
+<button
+class="primary"
+onclick="openModal('member')"
+>
++ Mitarbeiter
+</button>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Dienstgrad</th>
+<th>Funktion</th>
+<th>Wache</th>
+<th>Qualifikationen</th>
+<th></th>
+</tr>
+
+</thead>
+
+<tbody
+id="memberTable"
+></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+QUALIFIKATIONSVERWALTUNG
+========================= -->
+
+<section
+id="qualificationAdmin"
+class="page"
+>
+
+<div class="card admin-only">
+
+<h2>
+🏅 Qualifikationsverwaltung
+</h2>
+
+<button
+class="primary"
+onclick="openModal('qualification')"
+>
++ Qualifikation
+</button>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Qualifikation</th>
+<th>Beschreibung</th>
+<th></th>
+</tr>
+
+</thead>
+
+<tbody
+id="qualificationTable"
+></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+ANKÜNDIGUNGEN
+========================= -->
+
+<section
+id="announcements"
+class="page"
+>
+
+<div class="card admin-only">
+
+<h2>
+📢 Ankündigungen
+</h2>
+
+<button
+class="primary"
+onclick="openModal('announcement')"
+>
++ Ankündigung
+</button>
+
+<div
+id="announcementList"
+></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+LEHRGANGSVERWALTUNG
+========================= -->
+
+<section
+id="courseAdmin"
+class="page"
+>
+
+<div class="card admin-only">
+
+<h2>
+🎓 Lehrgangsverwaltung
+</h2>
+
+<p>
+Hier werden Lehrgänge erstellt.
+Mitarbeiter können sich anschließend
+im Bereich „Lehrgänge“ anmelden.
+</p>
+
+<button
+class="primary"
+onclick="openModal('course')"
+>
++ Lehrgang erstellen
+</button>
+
+<div id="courseAdminList"></div>
+
+</div>
+
+</section>
+
 
 </main>
 
 </div>
 
 
-<!-- MODAL -->
+<!-- =========================
+MODAL
+========================= -->
 
-<div id="modal" class="modal">
+<div
+id="modal"
+class="modal"
+>
 
 <div class="modal-box">
 
@@ -758,12 +1383,12 @@ Speichern
 
 <script>
 
-/* =========================
-   DATEN
-========================= */
+/* =====================================================
+DATENBANK
+===================================================== */
 
 const STORAGE =
-"wasserrettung_hansestadt_luebeck";
+"wasserrettung_luebeck_system_v3";
 
 let data =
 JSON.parse(
@@ -776,30 +1401,34 @@ functions:[],
 qualifications:[],
 courses:[],
 vehicles:[],
+stations:[],
 duties:[],
-reports:[]
+reports:[],
+documents:[],
+clothing:[],
+equipment:[],
+logbook:[],
+announcements:[],
+assignments:[]
 
 };
 
-let modalType = null;
+let modalType=null;
 
 
-/* =========================
-   LOGIN
-========================= */
+/* =====================================================
+LOGIN
+===================================================== */
 
 function login(){
 
-const user =
+const user=
 document.getElementById("loginUser").value;
 
-const pass =
+const pass=
 document.getElementById("loginPassword").value;
 
-if(
-user === "admin" &&
-pass === "001"
-){
+if(user==="admin" && pass==="001"){
 
 document.getElementById(
 "loginPage"
@@ -815,13 +1444,12 @@ render();
 
 document.getElementById(
 "loginError"
-).textContent =
+).textContent=
 "Benutzername oder Passwort falsch.";
 
 }
 
 }
-
 
 function logout(){
 
@@ -830,16 +1458,16 @@ location.reload();
 }
 
 
-/* =========================
-   NAVIGATION
-========================= */
+/* =====================================================
+NAVIGATION
+===================================================== */
 
 function showPage(id,button){
 
 document
 .querySelectorAll(".page")
 .forEach(
-p=>p.classList.remove("active")
+x=>x.classList.remove("active")
 );
 
 document
@@ -849,36 +1477,39 @@ document
 document
 .querySelectorAll(".nav button")
 .forEach(
-b=>b.classList.remove("active")
+x=>x.classList.remove("active")
 );
 
 button.classList.add("active");
 
-const titles={
-
-dashboard:"Dashboard",
-members:"Mitarbeiter",
-departments:"Abteilungen",
-functions:"Funktionen",
-qualifications:"Qualifikationen",
-courses:"Lehrgänge",
-vehicles:"Fahrzeuge",
-duties:"Dienstplan",
-reports:"Einsätze",
-archive:"Einsatzarchiv"
-
-};
-
 document.getElementById(
 "pageTitle"
-).textContent=titles[id];
+).textContent=
+button.textContent.trim();
 
 }
 
 
-/* =========================
-   MODAL
-========================= */
+function adminPage(id,button){
+
+/*
+ADMIN-BEREICH
+
+Aktuell ist der Login-Account "admin"
+automatisch Systemadministrator.
+
+Später kann hier die Supabase-Rolle
+geprüft werden.
+*/
+
+showPage(id,button);
+
+}
+
+
+/* =====================================================
+MODAL ÖFFNEN
+===================================================== */
 
 function openModal(type){
 
@@ -888,16 +1519,19 @@ document
 .getElementById("modal")
 .classList.add("active");
 
-const title =
+const title=
 document.getElementById("modalTitle");
 
-const content =
+const content=
 document.getElementById("modalContent");
 
 
+/* MITARBEITER */
+
 if(type==="member"){
 
-title.textContent="Mitarbeiter anlegen";
+title.textContent=
+"Mitarbeiter anlegen";
 
 content.innerHTML=`
 
@@ -925,13 +1559,15 @@ content.innerHTML=`
 
 <select id="f_function">
 
-<option value="">Keine Funktion</option>
+<option value="">
+Keine Funktion
+</option>
 
 ${data.functions.map(
 (f,i)=>`
 
 <option value="${i}">
-${escapeHtml(f.name)}
+${esc(f.name)}
 </option>
 
 `
@@ -943,17 +1579,19 @@ ${escapeHtml(f.name)}
 
 <div class="form-group">
 
-<label>Abteilung</label>
+<label>Wache</label>
 
-<select id="f_department">
+<select id="f_station">
 
-<option value="">Keine Abteilung</option>
+<option value="">
+Keine Wache
+</option>
 
-${data.departments.map(
-(d,i)=>`
+${data.stations.map(
+(s,i)=>`
 
 <option value="${i}">
-${escapeHtml(d.name)}
+${esc(s.name)}
 </option>
 
 `
@@ -965,7 +1603,9 @@ ${escapeHtml(d.name)}
 
 <div class="form-group full">
 
-<label>Qualifikationen</label>
+<label>
+Qualifikationen
+</label>
 
 <div class="checkbox-list">
 
@@ -980,7 +1620,7 @@ name="memberQualification"
 value="${i}"
 >
 
-${escapeHtml(q.name)}
+${esc(q.name)}
 
 </label>
 
@@ -998,9 +1638,12 @@ ${escapeHtml(q.name)}
 }
 
 
+/* ABTEILUNG */
+
 if(type==="department"){
 
-title.textContent="Abteilung anlegen";
+title.textContent=
+"Abteilung anlegen";
 
 content.innerHTML=`
 
@@ -1025,56 +1668,18 @@ content.innerHTML=`
 }
 
 
-if(type==="function"){
-
-title.textContent="Funktion anlegen";
-
-content.innerHTML=`
-
-<div class="form-group">
-
-<label>Funktion</label>
-
-<input id="f_name">
-
-</div>
-
-<div class="form-group">
-
-<label>Abteilung</label>
-
-<select id="f_department">
-
-<option value="">Keine Abteilung</option>
-
-${data.departments.map(
-(d,i)=>`
-
-<option value="${i}">
-${escapeHtml(d.name)}
-</option>
-
-`
-).join("")}
-
-</select>
-
-</div>
-
-`;
-
-}
-
+/* QUALIFIKATION */
 
 if(type==="qualification"){
 
-title.textContent="Qualifikation anlegen";
+title.textContent=
+"Qualifikation anlegen";
 
 content.innerHTML=`
 
 <div class="form-group">
 
-<label>Qualifikation</label>
+<label>Name</label>
 
 <input id="f_name">
 
@@ -1093,9 +1698,12 @@ content.innerHTML=`
 }
 
 
+/* LEHRGANG */
+
 if(type==="course"){
 
-title.textContent="Lehrgang anlegen";
+title.textContent=
+"Lehrgang erstellen";
 
 content.innerHTML=`
 
@@ -1119,7 +1727,7 @@ ${data.qualifications.map(
 (q,i)=>`
 
 <option value="${i}">
-${escapeHtml(q.name)}
+${esc(q.name)}
 </option>
 
 `
@@ -1133,7 +1741,10 @@ ${escapeHtml(q.name)}
 
 <label>Start</label>
 
-<input id="f_start" type="date">
+<input
+id="f_start"
+type="date"
+>
 
 </div>
 
@@ -1141,7 +1752,10 @@ ${escapeHtml(q.name)}
 
 <label>Ende</label>
 
-<input id="f_end" type="date">
+<input
+id="f_end"
+type="date"
+>
 
 </div>
 
@@ -1152,9 +1766,12 @@ ${escapeHtml(q.name)}
 }
 
 
+/* FAHRZEUG */
+
 if(type==="vehicle"){
 
-title.textContent="Fahrzeug / Boot anlegen";
+title.textContent=
+"Fahrzeug / Boot anlegen";
 
 content.innerHTML=`
 
@@ -1172,8 +1789,10 @@ content.innerHTML=`
 
 <label>Typ</label>
 
-<input id="f_type"
-placeholder="ELW, RTB, GW-Wasserrettung...">
+<input
+id="f_type"
+placeholder="ELW, RTB, GW-Wasserrettung..."
+>
 
 </div>
 
@@ -1187,9 +1806,33 @@ placeholder="ELW, RTB, GW-Wasserrettung...">
 
 <div class="form-group">
 
+<label>Wache</label>
+
+<select id="f_station">
+
+<option value="">
+Keine Wache
+</option>
+
+${data.stations.map(
+(s,i)=>`
+
+<option value="${i}">
+${esc(s.name)}
+</option>
+
+`
+).join("")}
+
+</select>
+
+</div>
+
+<div class="form-group">
+
 <label>Benötigte Qualifikation</label>
 
-<select id="f_requiredQualification">
+<select id="f_required">
 
 <option value="">
 Keine
@@ -1199,7 +1842,7 @@ ${data.qualifications.map(
 q=>`
 
 <option>
-${escapeHtml(q.name)}
+${esc(q.name)}
 </option>
 
 `
@@ -1211,16 +1854,14 @@ ${escapeHtml(q.name)}
 
 <div class="form-group full">
 
-<label>Besatzungspositionen</label>
+<label>
+Besatzungspositionen
+</label>
 
 <input
 id="f_positions"
 placeholder="Einsatzleiter, Führungsassistent, Fahrer"
->
-
-<p>
-Mehrere Positionen mit Komma trennen.
-</p>
+/>
 
 </div>
 
@@ -1231,9 +1872,50 @@ Mehrere Positionen mit Komma trennen.
 }
 
 
+/* WACHE */
+
+if(type==="station"){
+
+title.textContent=
+"Wache anlegen";
+
+content.innerHTML=`
+
+<div class="form-group">
+
+<label>Name der Wache</label>
+
+<input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Adresse</label>
+
+<input id="f_address">
+
+</div>
+
+<div class="form-group">
+
+<label>Beschreibung</label>
+
+<textarea id="f_description"></textarea>
+
+</div>
+
+`;
+
+}
+
+
+/* DIENST */
+
 if(type==="duty"){
 
-title.textContent="Dienst erstellen";
+title.textContent=
+"Dienst erstellen";
 
 content.innerHTML=`
 
@@ -1244,6 +1926,26 @@ content.innerHTML=`
 <label>Dienst</label>
 
 <input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Wache</label>
+
+<select id="f_station">
+
+${data.stations.map(
+(s,i)=>`
+
+<option value="${i}">
+${esc(s.name)}
+</option>
+
+`
+).join("")}
+
+</select>
 
 </div>
 
@@ -1275,9 +1977,27 @@ content.innerHTML=`
 
 <label>Fahrzeuge</label>
 
-<div id="dutyVehicles">
+<div class="checkbox-list">
 
-${vehicleSelection("duty")}
+${data.vehicles.map(
+(v,i)=>`
+
+<label class="checkbox-item">
+
+<input
+type="checkbox"
+name="dutyVehicle"
+value="${i}"
+>
+
+${esc(v.name)}
+-
+${esc(v.callsign)}
+
+</label>
+
+`
+).join("")}
 
 </div>
 
@@ -1290,9 +2010,12 @@ ${vehicleSelection("duty")}
 }
 
 
+/* EINSATZ */
+
 if(type==="report"){
 
-title.textContent="Neuer Einsatz";
+title.textContent=
+"Neuer Einsatz";
 
 content.innerHTML=`
 
@@ -1310,13 +2033,16 @@ content.innerHTML=`
 
 <label>Datum / Uhrzeit</label>
 
-<input id="f_date" type="datetime-local">
+<input
+id="f_date"
+type="datetime-local"
+>
 
 </div>
 
 <div class="form-group">
 
-<label>Einsatzstichwort</label>
+<label>Stichwort</label>
 
 <input id="f_keyword">
 
@@ -1324,7 +2050,7 @@ content.innerHTML=`
 
 <div class="form-group">
 
-<label>Einsatzort</label>
+<label>Ort</label>
 
 <input id="f_location">
 
@@ -1332,11 +2058,31 @@ content.innerHTML=`
 
 <div class="form-group full">
 
-<label>Fahrzeuge und Besatzungen</label>
+<label>
+Fahrzeuge
+</label>
 
-<div id="reportVehicles">
+<div class="checkbox-list">
 
-${vehicleSelection("report")}
+${data.vehicles.map(
+(v,i)=>`
+
+<label class="checkbox-item">
+
+<input
+type="checkbox"
+name="reportVehicle"
+value="${i}"
+>
+
+${esc(v.name)}
+-
+${esc(v.callsign)}
+
+</label>
+
+`
+).join("")}
 
 </div>
 
@@ -1344,7 +2090,9 @@ ${vehicleSelection("report")}
 
 <div class="form-group full">
 
-<label>Einsatzbericht</label>
+<label>
+Einsatzbericht
+</label>
 
 <textarea id="f_report"></textarea>
 
@@ -1356,107 +2104,88 @@ ${vehicleSelection("report")}
 
 }
 
-}
 
+/* DOKUMENT */
 
-/* =========================
-   FAHRZEUG-AUSWAHL
-========================= */
+if(type==="document"){
 
-function vehicleSelection(prefix){
+title.textContent=
+"Dokument hinzufügen";
 
-if(data.vehicles.length===0){
+content.innerHTML=`
 
-return `
-<p>
-Noch keine Fahrzeuge angelegt.
-Lege zuerst unter „Fahrzeuge“ ein Fahrzeug an.
-</p>
-`;
+<div class="form-group">
 
-}
+<label>Titel</label>
 
-return data.vehicles.map(
-(v,i)=>{
-
-const positions =
-(v.positions || "")
-.split(",")
-.map(x=>x.trim())
-.filter(Boolean);
-
-return `
-
-<div class="vehicle-crew">
-
-<label class="checkbox-item">
-
-<input
-type="checkbox"
-name="${prefix}Vehicle"
-value="${i}"
-onchange="toggleCrew('${prefix}',${i})"
->
-
-<b>
-${escapeHtml(v.name)}
-</b>
-
-&nbsp;
-
-${escapeHtml(v.callsign)}
-
-</label>
-
-<div
-id="${prefix}Crew${i}"
-style="display:none"
->
-
-${positions.length ?
-
-positions.map(
-(pos,p)=>`
-
-<div class="crew-row">
-
-<div>
-
-<label>
-${escapeHtml(pos)}
-</label>
+<input id="f_name">
 
 </div>
 
-<select
-id="${prefix}_${i}_${p}"
-class="${prefix}CrewSelect"
-data-vehicle="${i}"
-data-position="${escapeHtml(pos)}"
->
+<div class="form-group">
 
-${eligibleMembers(v).map(
-m=>`
+<label>Kategorie</label>
 
-<option value="${m.index}">
-${escapeHtml(m.name)}
-</option>
+<select id="f_category">
 
-`
-).join("")}
+<option>Einsatzplan</option>
+<option>Dienstanweisung</option>
+<option>Dokument</option>
+<option>Sonstiges</option>
 
 </select>
 
 </div>
 
-`
-).join("")
+<div class="form-group">
 
-:
+<label>Link / Dateipfad</label>
 
-"<p>Keine Besatzungspositionen definiert.</p>"
+<input id="f_link">
+
+</div>
+
+`;
 
 }
+
+
+/* KLEIDERKAMMER */
+
+if(type==="clothing"){
+
+title.textContent=
+"Kleidungsstück anlegen";
+
+content.innerHTML=`
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Kleidung</label>
+
+<input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Größe</label>
+
+<input id="f_size">
+
+</div>
+
+<div class="form-group">
+
+<label>Bestand</label>
+
+<input
+id="f_stock"
+type="number"
+value="1"
+>
 
 </div>
 
@@ -1464,87 +2193,189 @@ ${escapeHtml(m.name)}
 
 `;
 
-}).join("");
+}
+
+
+/* GERÄT */
+
+if(type==="equipment"){
+
+title.textContent=
+"Gerät anlegen";
+
+content.innerHTML=`
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Gerät</label>
+
+<input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Standort</label>
+
+<input id="f_location">
+
+</div>
+
+<div class="form-group">
+
+<label>Status</label>
+
+<select id="f_status">
+
+<option>Einsatzbereit</option>
+<option>Defekt</option>
+<option>Wartung</option>
+
+</select>
+
+</div>
+
+</div>
+
+`;
 
 }
 
 
-function toggleCrew(prefix,index){
+/* WACHBUCH */
 
-const checked =
-document.querySelector(
-`input[name="${prefix}Vehicle"][value="${index}"]`
-).checked;
+if(type==="logbook"){
 
-document.getElementById(
-`${prefix}Crew${index}`
-).style.display =
-checked ? "block" : "none";
+title.textContent=
+"Wachbucheintrag";
 
-}
+content.innerHTML=`
 
+<div class="form-group">
 
-/* =========================
-   QUALIFIKATIONS-CHECK
-========================= */
+<label>Eintrag</label>
 
-function eligibleMembers(vehicle){
+<textarea id="f_entry"></textarea>
 
-const required =
-(vehicle.required || "")
-.toLowerCase()
-.trim();
+</div>
 
-return data.members
-.map(
-(m,index)=>({
-
-...m,
-index:index
-
-})
-)
-.filter(
-m=>{
-
-if(!required)
-return true;
-
-return String(m.qualifications)
-.toLowerCase()
-.includes(required);
-
-}
-);
+`;
 
 }
 
 
-/* =========================
-   SPEICHERN
-========================= */
+/* ANKÜNDIGUNG */
+
+if(type==="announcement"){
+
+title.textContent=
+"Ankündigung";
+
+content.innerHTML=`
+
+<div class="form-group">
+
+<label>Titel</label>
+
+<input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Text</label>
+
+<textarea id="f_text"></textarea>
+
+</div>
+
+`;
+
+}
+
+
+/* FAHRZEUGEINTEILUNG */
+
+if(type==="assignment"){
+
+title.textContent=
+"Fahrzeugeinteilung";
+
+content.innerHTML=`
+
+<div class="form-group">
+
+<label>Bezeichnung</label>
+
+<input
+id="f_name"
+placeholder="z.B. Einsatz 01/2026"
+/>
+
+</div>
+
+<div class="form-group">
+
+<label>Fahrzeuge</label>
+
+<div class="checkbox-list">
+
+${data.vehicles.map(
+(v,i)=>`
+
+<label class="checkbox-item">
+
+<input
+type="checkbox"
+name="assignmentVehicle"
+value="${i}"
+>
+
+${esc(v.name)}
+-
+${esc(v.callsign)}
+
+</label>
+
+`
+).join("")}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =====================================================
+SPEICHERN
+===================================================== */
 
 function saveModal(){
 
-const get=id =>
+const get=id=>
 document.getElementById(id)?.value || "";
 
 
+/* MITARBEITER */
+
 if(modalType==="member"){
 
-const qualifications =
-[
+const qualifications=[
 ...document.querySelectorAll(
 'input[name="memberQualification"]:checked'
 )
-]
-.map(
+].map(
 x=>data.qualifications[
 Number(x.value)
 ]?.name
-)
-.filter(Boolean);
-
+);
 
 data.members.push({
 
@@ -1556,16 +2387,18 @@ function:data.functions[
 Number(get("f_function"))
 ]?.name || "",
 
-department:data.departments[
-Number(get("f_department"))
+station:data.stations[
+Number(get("f_station"))
 ]?.name || "",
 
-qualifications:qualifications
+qualifications
 
 });
 
 }
 
+
+/* ABTEILUNG */
 
 if(modalType==="department"){
 
@@ -1580,20 +2413,7 @@ description:get("f_description")
 }
 
 
-if(modalType==="function"){
-
-data.functions.push({
-
-name:get("f_name"),
-
-department:data.departments[
-Number(get("f_department"))
-]?.name || ""
-
-});
-
-}
-
+/* QUALIFIKATION */
 
 if(modalType==="qualification"){
 
@@ -1608,6 +2428,8 @@ description:get("f_description")
 }
 
 
+/* LEHRGANG */
+
 if(modalType==="course"){
 
 data.courses.push({
@@ -1620,12 +2442,16 @@ Number(get("f_qualification"))
 
 start:get("f_start"),
 
-end:get("f_end")
+end:get("f_end"),
+
+participants:[]
 
 });
 
 }
 
+
+/* FAHRZEUG */
 
 if(modalType==="vehicle"){
 
@@ -1637,7 +2463,11 @@ type:get("f_type"),
 
 callsign:get("f_callsign"),
 
-required:get("f_requiredQualification"),
+station:data.stations[
+Number(get("f_station"))
+]?.name || "",
+
+required:get("f_required"),
 
 positions:get("f_positions")
 
@@ -1646,11 +2476,44 @@ positions:get("f_positions")
 }
 
 
+/* WACHE */
+
+if(modalType==="station"){
+
+data.stations.push({
+
+name:get("f_name"),
+
+address:get("f_address"),
+
+description:get("f_description")
+
+});
+
+}
+
+
+/* DIENST */
+
 if(modalType==="duty"){
+
+const vehicles=[
+...document.querySelectorAll(
+'input[name="dutyVehicle"]:checked'
+)
+].map(
+x=>data.vehicles[
+Number(x.value)
+]?.name
+);
 
 data.duties.push({
 
 name:get("f_name"),
+
+station:data.stations[
+Number(get("f_station"))
+]?.name || "",
 
 date:get("f_date"),
 
@@ -1658,14 +2521,37 @@ start:get("f_start"),
 
 end:get("f_end"),
 
-vehicles:collectVehicleCrew("duty")
+vehicles
 
 });
 
 }
 
 
+/* EINSATZ */
+
 if(modalType==="report"){
+
+const vehicles=[
+...document.querySelectorAll(
+'input[name="reportVehicle"]:checked'
+)
+].map(
+x=>{
+
+const v=
+data.vehicles[
+Number(x.value)
+];
+
+return {
+
+name:v?.name || "",
+callsign:v?.callsign || ""
+
+};
+
+});
 
 data.reports.push({
 
@@ -1677,7 +2563,7 @@ keyword:get("f_keyword"),
 
 location:get("f_location"),
 
-vehicles:collectVehicleCrew("report"),
+vehicles,
 
 report:get("f_report"),
 
@@ -1688,6 +2574,115 @@ status:"Abgeschlossen"
 }
 
 
+/* DOKUMENT */
+
+if(modalType==="document"){
+
+data.documents.push({
+
+name:get("f_name"),
+
+category:get("f_category"),
+
+link:get("f_link"),
+
+date:new Date().toLocaleDateString("de-DE")
+
+});
+
+}
+
+
+/* KLEIDUNG */
+
+if(modalType==="clothing"){
+
+data.clothing.push({
+
+name:get("f_name"),
+
+size:get("f_size"),
+
+stock:get("f_stock")
+
+});
+
+}
+
+
+/* GERÄT */
+
+if(modalType==="equipment"){
+
+data.equipment.push({
+
+name:get("f_name"),
+
+location:get("f_location"),
+
+status:get("f_status")
+
+});
+
+}
+
+
+/* WACHBUCH */
+
+if(modalType==="logbook"){
+
+data.logbook.push({
+
+entry:get("f_entry"),
+
+date:new Date().toLocaleString("de-DE")
+
+});
+
+}
+
+
+/* ANKÜNDIGUNG */
+
+if(modalType==="announcement"){
+
+data.announcements.push({
+
+title:get("f_name"),
+
+text:get("f_text"),
+
+date:new Date().toLocaleString("de-DE")
+
+});
+
+}
+
+
+/* FAHRZEUGEINTEILUNG */
+
+if(modalType==="assignment"){
+
+const vehicles=[
+...document.querySelectorAll(
+'input[name="assignmentVehicle"]:checked'
+)
+].map(
+x=>data.vehicles[
+Number(x.value)
+]?.name
+);
+
+data.assignments.push({
+
+name:get("f_name"),
+
+vehicles
+
+});
+
+}
+
 saveData();
 
 closeModal();
@@ -1697,134 +2692,56 @@ render();
 }
 
 
-/* =========================
-   BESATZUNG SAMMELN
-========================= */
-
-function collectVehicleCrew(prefix){
-
-const selected =
-[
-...document.querySelectorAll(
-`input[name="${prefix}Vehicle"]:checked`
-)
-];
-
-return selected.map(
-checkbox=>{
-
-const index =
-Number(checkbox.value);
-
-const vehicle =
-data.vehicles[index];
-
-const positions =
-(vehicle.positions || "")
-.split(",")
-.map(x=>x.trim())
-.filter(Boolean);
-
-const crew =
-positions.map(
-(pos,p)=>{
-
-const select =
-document.getElementById(
-`${prefix}_${index}_${p}`
-);
-
-const member =
-data.members[
-Number(select?.value)
-];
-
-return {
-
-position:pos,
-
-member:member
-? member.name
-: ""
-
-};
-
-});
-
-return {
-
-vehicle:vehicle.name,
-
-callsign:vehicle.callsign,
-
-crew:crew
-
-};
-
-});
-
-}
-
-
-/* =========================
-   RENDER
-========================= */
+/* =====================================================
+RENDER
+===================================================== */
 
 function render(){
 
 document.getElementById(
 "statMembers"
-).textContent =
-data.members.length;
+).textContent=data.members.length;
 
 document.getElementById(
 "statVehicles"
-).textContent =
-data.vehicles.length;
+).textContent=data.vehicles.length;
 
 document.getElementById(
 "statDuties"
-).textContent =
-data.duties.length;
+).textContent=data.duties.length;
 
 document.getElementById(
 "statReports"
-).textContent =
-data.reports.length;
+).textContent=data.reports.length;
 
 
 /* Mitarbeiter */
 
 document.getElementById(
 "memberTable"
-).innerHTML =
+).innerHTML=
 data.members.map(
 (m,i)=>`
 
 <tr>
 
-<td>
-${escapeHtml(m.name)}
-</td>
+<td>${esc(m.name)}</td>
+
+<td>${esc(m.rank)}</td>
+
+<td>${esc(m.function)}</td>
+
+<td>${esc(m.station)}</td>
 
 <td>
-${escapeHtml(m.rank)}
-</td>
-
-<td>
-${escapeHtml(m.function)}
-</td>
-
-<td>
-${escapeHtml(m.department)}
-</td>
-
-<td>
-${m.qualifications
+${(m.qualifications||[])
 .map(
-q=>`<span class="badge">${escapeHtml(q)}</span>`
-)
-.join(" ")}
+q=>`
+<span class="badge">
+${esc(q)}
+</span>
+`
+).join("")}
 </td>
 
 <td>
@@ -1841,187 +2758,29 @@ Löschen
 </tr>
 
 `
-).join("");
-
-
-
-/* Abteilungen */
-
-document.getElementById(
-"departmentTable"
-).innerHTML =
-data.departments.map(
-(d,i)=>`
-
-<tr>
-
-<td>
-${escapeHtml(d.name)}
-</td>
-
-<td>
-${escapeHtml(d.description)}
-</td>
-
-<td>
-
-<button
-class="delete"
-onclick="deleteItem('departments',${i})"
->
-Löschen
-</button>
-
-</td>
-
-</tr>
-
-`
-).join("");
-
-
-
-/* Funktionen */
-
-document.getElementById(
-"functionTable"
-).innerHTML =
-data.functions.map(
-(f,i)=>`
-
-<tr>
-
-<td>
-${escapeHtml(f.name)}
-</td>
-
-<td>
-${escapeHtml(f.department)}
-</td>
-
-<td>
-
-<button
-class="delete"
-onclick="deleteItem('functions',${i})"
->
-Löschen
-</button>
-
-</td>
-
-</tr>
-
-`
-).join("");
-
-
-
-/* Qualifikationen */
-
-document.getElementById(
-"qualificationTable"
-).innerHTML =
-data.qualifications.map(
-(q,i)=>`
-
-<tr>
-
-<td>
-${escapeHtml(q.name)}
-</td>
-
-<td>
-${escapeHtml(q.description)}
-</td>
-
-<td>
-
-<button
-class="delete"
-onclick="deleteItem('qualifications',${i})"
->
-Löschen
-</button>
-
-</td>
-
-</tr>
-
-`
-).join("");
-
-
-
-/* Lehrgänge */
-
-document.getElementById(
-"courseTable"
-).innerHTML =
-data.courses.map(
-(c,i)=>`
-
-<tr>
-
-<td>
-${escapeHtml(c.name)}
-</td>
-
-<td>
-${escapeHtml(c.qualification)}
-</td>
-
-<td>
-${escapeHtml(c.start)}
-</td>
-
-<td>
-${escapeHtml(c.end)}
-</td>
-
-<td>
-
-<button
-class="delete"
-onclick="deleteItem('courses',${i})"
->
-Löschen
-</button>
-
-</td>
-
-</tr>
-
-`
-).join("");
-
+).join("") ||
+emptyRow(6);
 
 
 /* Fahrzeuge */
 
 document.getElementById(
 "vehicleTable"
-).innerHTML =
+).innerHTML=
 data.vehicles.map(
 (v,i)=>`
 
 <tr>
 
-<td>
-${escapeHtml(v.name)}
-</td>
+<td>${esc(v.name)}</td>
 
-<td>
-${escapeHtml(v.type)}
-</td>
+<td>${esc(v.type)}</td>
 
-<td>
-${escapeHtml(v.callsign)}
-</td>
+<td>${esc(v.callsign)}</td>
 
-<td>
-${escapeHtml(v.positions)}
-</td>
+<td>${esc(v.station)}</td>
+
+<td>${esc(v.positions)}</td>
 
 <td>
 
@@ -2037,38 +2796,165 @@ Löschen
 </tr>
 
 `
+).join("") ||
+emptyRow(6);
+
+
+/* Wachen */
+
+document.getElementById(
+"stationTable"
+).innerHTML=
+data.stations.map(
+(s,i)=>`
+
+<tr>
+
+<td>${esc(s.name)}</td>
+
+<td>${esc(s.address)}</td>
+
+<td>${esc(s.description)}</td>
+
+<td>
+
+<button
+class="delete"
+onclick="deleteItem('stations',${i})"
+>
+Löschen
+</button>
+
+</td>
+
+</tr>
+
+`
+).join("") ||
+emptyRow(4);
+
+
+/* Qualifikationen */
+
+document.getElementById(
+"qualificationTable"
+).innerHTML=
+data.qualifications.map(
+(q,i)=>`
+
+<tr>
+
+<td>${esc(q.name)}</td>
+
+<td>${esc(q.description)}</td>
+
+<td>
+
+<button
+class="delete"
+onclick="deleteItem('qualifications',${i})"
+>
+Löschen
+</button>
+
+</td>
+
+</tr>
+
+`
+).join("") ||
+emptyRow(3);
+
+
+renderDutyplan();
+
+renderCourses();
+
+renderArchive();
+
+renderDocuments();
+
+renderClothing();
+
+renderEquipment();
+
+renderLogbook();
+
+renderAnnouncements();
+
+renderAssignments();
+
+renderDashboard();
+
+}
+
+
+/* =====================================================
+DIENSTPLAN
+===================================================== */
+
+function renderDutyplan(){
+
+const filter=
+document.getElementById(
+"dutyStationFilter"
+);
+
+if(filter){
+
+filter.innerHTML=
+`
+<option value="">
+Alle Wachen
+</option>
+`
++
+data.stations.map(
+s=>`
+<option>
+${esc(s.name)}
+</option>
+`
 ).join("");
 
+}
 
-
-/* Dienste */
+const selected=
+filter?.value || "";
 
 document.getElementById(
 "dutyTable"
-).innerHTML =
-data.duties.map(
+).innerHTML=
+data.duties
+.filter(
+d=>!selected || d.station===selected
+)
+.map(
 (d,i)=>`
 
 <tr>
 
-<td>
-${escapeHtml(d.date)}
-</td>
+<td>${esc(d.date)}</td>
+
+<td>${esc(d.station)}</td>
+
+<td>${esc(d.name)}</td>
 
 <td>
-${escapeHtml(d.name)}
-</td>
-
-<td>
-${escapeHtml(d.start)}
+${esc(d.start)}
 -
-${escapeHtml(d.end)}
+${esc(d.end)}
 </td>
 
 <td>
-
-${formatVehicles(d.vehicles)}
-
+${(d.vehicles||[])
+.map(
+v=>`
+<span class="badge">
+${esc(v)}
+</span>
+`
+).join("")}
 </td>
 
 <td>
@@ -2085,44 +2971,275 @@ Löschen
 </tr>
 
 `
-).join("");
+).join("") ||
+emptyRow(6);
+
+}
 
 
+/* =====================================================
+LEHRGÄNGE
+===================================================== */
 
-/* Einsätze */
+function renderCourses(){
 
 document.getElementById(
-"reportTable"
-).innerHTML =
+"courseList"
+).innerHTML=
+data.courses.map(
+(c,i)=>`
+
+<div class="notice">
+
+<h3>
+${esc(c.name)}
+</h3>
+
+<p>
+
+<b>Qualifikation:</b>
+${esc(c.qualification)}
+
+<br>
+
+<b>Zeitraum:</b>
+${esc(c.start)}
+-
+${esc(c.end)}
+
+</p>
+
+<button
+class="primary"
+onclick="registerCourse(${i})"
+>
+Für Lehrgang anmelden
+</button>
+
+</div>
+
+`
+).join("") ||
+'<div class="empty">Keine Lehrgänge vorhanden.</div>';
+
+
+document.getElementById(
+"courseAdminList"
+).innerHTML=
+data.courses.map(
+(c,i)=>`
+
+<div class="notice">
+
+<b>${esc(c.name)}</b>
+
+<br>
+
+${esc(c.qualification)}
+
+<br>
+
+Teilnehmer:
+${(c.participants||[]).length}
+
+<button
+class="delete"
+onclick="deleteItem('courses',${i})"
+>
+Löschen
+</button>
+
+</div>
+
+`
+).join("") ||
+'<div class="empty">Keine Lehrgänge erstellt.</div>';
+
+}
+
+
+function registerCourse(index){
+
+const name=
+prompt(
+"Name des Mitarbeiters:"
+);
+
+if(!name)
+return;
+
+if(!data.courses[index].participants)
+data.courses[index].participants=[];
+
+data.courses[index].participants.push(name);
+
+saveData();
+
+render();
+
+alert(
+"Du wurdest für den Lehrgang angemeldet."
+);
+
+}
+
+
+/* =====================================================
+ARCHIV
+===================================================== */
+
+function renderArchive(){
+
+document.getElementById(
+"archiveList"
+).innerHTML=
 data.reports.map(
-(r,i)=>`
+r=>`
+
+<div class="archive-item">
+
+<h3>
+🚨 ${esc(r.number)}
+-
+${esc(r.keyword)}
+</h3>
+
+<p>
+
+<b>Datum:</b>
+${esc(r.date)}
+
+<br>
+
+<b>Ort:</b>
+${esc(r.location)}
+
+</p>
+
+<h4>
+Fahrzeuge
+</h4>
+
+${(r.vehicles||[])
+.map(
+v=>`
+<span class="badge">
+${esc(v.name)}
+-
+${esc(v.callsign)}
+</span>
+`
+).join("")}
+
+<h4>
+Einsatzbericht
+</h4>
+
+<p>
+${esc(r.report)}
+</p>
+
+</div>
+
+`
+).join("") ||
+'<div class="empty">Noch keine Einsätze archiviert.</div>';
+
+}
+
+
+/* =====================================================
+DOKUMENTE
+===================================================== */
+
+function renderDocuments(){
+
+document.getElementById(
+"documentsList"
+).innerHTML=
+data.documents.map(
+(d,i)=>`
+
+<div class="notice">
+
+<b>
+${esc(d.name)}
+</b>
+
+<br>
+
+Kategorie:
+${esc(d.category)}
+
+<br>
+
+<a
+href="${esc(d.link)}"
+target="_blank"
+>
+Dokument öffnen
+</a>
+
+</div>
+
+`
+).join("") ||
+'<div class="empty">Noch keine Dokumente vorhanden.</div>';
+
+}
+
+
+/* =====================================================
+KLEIDERKAMMER
+===================================================== */
+
+function renderClothing(){
+
+document.getElementById(
+"clothingTable"
+).innerHTML=
+data.clothing.map(
+c=>`
 
 <tr>
 
-<td>
-${escapeHtml(r.number)}
-</td>
+<td>${esc(c.name)}</td>
 
-<td>
-${escapeHtml(r.date)}
-</td>
+<td>${esc(c.size)}</td>
 
-<td>
-${escapeHtml(r.keyword)}
-</td>
+<td>${esc(c.stock)}</td>
 
-<td>
-${escapeHtml(r.location)}
-</td>
+</tr>
 
-<td>
-${formatVehicles(r.vehicles)}
-</td>
+`
+).join("") ||
+emptyRow(3);
+
+}
+
+
+/* =====================================================
+GERÄTE
+===================================================== */
+
+function renderEquipment(){
+
+document.getElementById(
+"equipmentTable"
+).innerHTML=
+data.equipment.map(
+e=>`
+
+<tr>
+
+<td>${esc(e.name)}</td>
+
+<td>${esc(e.location)}</td>
 
 <td>
 
 <span class="badge">
-${escapeHtml(r.status)}
+${esc(e.status)}
 </span>
 
 </td>
@@ -2130,107 +3247,114 @@ ${escapeHtml(r.status)}
 </tr>
 
 `
-).join("");
+).join("") ||
+emptyRow(3);
+
+}
 
 
+/* =====================================================
+WACHBUCH
+===================================================== */
 
-/* Archiv */
+function renderLogbook(){
 
 document.getElementById(
-"archive"
-).innerHTML =
-data.reports
+"logbookList"
+).innerHTML=
+data.logbook
+.slice()
+.reverse()
 .map(
-r=>`
+l=>`
 
-<div class="archive-item">
+<div class="notice">
 
-<h3>
-🚨 ${escapeHtml(r.number)}
--
-${escapeHtml(r.keyword)}
-</h3>
+<b>
+${esc(l.date)}
+</b>
 
 <p>
-
-<b>Datum:</b>
-${escapeHtml(r.date)}
-
-<br>
-
-<b>Ort:</b>
-${escapeHtml(r.location)}
-
-</p>
-
-<h4>Fahrzeuge & Besatzung</h4>
-
-${formatVehiclesDetailed(r.vehicles)}
-
-<h4>Einsatzbericht</h4>
-
-<p>
-${escapeHtml(r.report)}
+${esc(l.entry)}
 </p>
 
 </div>
 
 `
-)
-.join("")
-||
-"<p>Noch keine Einsätze archiviert.</p>";
+).join("") ||
+'<div class="empty">Keine Wachbucheinträge.</div>';
 
 }
 
 
-/* =========================
-   FORMATIERUNG
-========================= */
+/* =====================================================
+ANKÜNDIGUNGEN
+===================================================== */
 
-function formatVehicles(vehicles){
+function renderAnnouncements(){
 
-return vehicles
+const html=
+data.announcements
+.slice()
+.reverse()
 .map(
+a=>`
+
+<div class="notice">
+
+<h3>
+📢 ${esc(a.title)}
+</h3>
+
+<p>
+${esc(a.text)}
+</p>
+
+<small>
+${esc(a.date)}
+</small>
+
+</div>
+
+`
+).join("") ||
+'<div class="empty">Keine Ankündigungen.</div>';
+
+document.getElementById(
+"announcementList"
+).innerHTML=html;
+
+document.getElementById(
+"dashboardAnnouncements"
+).innerHTML=html;
+
+}
+
+
+/* =====================================================
+FAHRZEUGEINTEILUNG
+===================================================== */
+
+function renderAssignments(){
+
+document.getElementById(
+"assignmentList"
+).innerHTML=
+data.assignments.map(
+a=>`
+
+<div class="notice">
+
+<h3>
+${esc(a.name)}
+</h3>
+
+${a.vehicles.map(
 v=>`
 
 <span class="badge">
-
-${escapeHtml(v.vehicle)}
-
+${esc(v)}
 </span>
-
-`
-)
-.join(" ");
-
-}
-
-
-function formatVehiclesDetailed(vehicles){
-
-return vehicles
-.map(
-v=>`
-
-<div style="margin-bottom:12px">
-
-<b>
-🚤 ${escapeHtml(v.vehicle)}
-</b>
-
-<br>
-
-${v.crew.map(
-c=>`
-
-&nbsp;&nbsp;
-${escapeHtml(c.position)}:
-<b>
-${escapeHtml(c.member)}
-</b>
-
-<br>
 
 `
 ).join("")}
@@ -2238,15 +3362,96 @@ ${escapeHtml(c.member)}
 </div>
 
 `
-)
-.join("");
+).join("") ||
+'<div class="empty">Keine Fahrzeugeinteilungen vorhanden.</div>';
 
 }
 
 
-/* =========================
-   LÖSCHEN
-========================= */
+/* =====================================================
+DASHBOARD
+===================================================== */
+
+function renderDashboard(){
+
+document.getElementById(
+"dashboardDuties"
+).innerHTML=
+data.duties
+.slice()
+.sort(
+(a,b)=>
+new Date(a.date)-new Date(b.date)
+)
+.slice(0,5)
+.map(
+d=>`
+
+<div class="notice">
+
+<b>
+${esc(d.date)}
+-
+${esc(d.name)}
+</b>
+
+<br>
+
+Wache:
+${esc(d.station)}
+
+<br>
+
+Zeit:
+${esc(d.start)}
+-
+${esc(d.end)}
+
+</div>
+
+`
+).join("") ||
+'<div class="empty">Keine Dienste eingetragen.</div>';
+
+
+document.getElementById(
+"dashboardVehicles"
+).innerHTML=
+data.assignments
+.slice(-5)
+.map(
+a=>`
+
+<div class="notice">
+
+<b>
+${esc(a.name)}
+</b>
+
+<br>
+
+${a.vehicles.map(
+v=>`
+
+<span class="badge">
+${esc(v)}
+</span>
+
+`
+).join("")}
+
+</div>
+
+`
+).join("") ||
+'<div class="empty">Keine Fahrzeugeinteilungen.</div>';
+
+}
+
+
+/* =====================================================
+LÖSCHEN
+===================================================== */
 
 function deleteItem(type,index){
 
@@ -2266,9 +3471,66 @@ render();
 }
 
 
-/* =========================
-   STORAGE
-========================= */
+/* =====================================================
+ARCHIV EXPORT
+===================================================== */
+
+function exportArchive(){
+
+const text=
+JSON.stringify(
+data.reports,
+null,
+2
+);
+
+const blob=
+new Blob(
+[text],
+{
+type:"application/json"
+}
+);
+
+const url=
+URL.createObjectURL(blob);
+
+const a=
+document.createElement("a");
+
+a.href=url;
+
+a.download=
+"einsatzarchiv-luebeck.json";
+
+a.click();
+
+URL.revokeObjectURL(url);
+
+}
+
+
+function clearArchive(){
+
+if(
+!confirm(
+"ACHTUNG! Das komplette Einsatzarchiv löschen?"
+)
+)
+return;
+
+data.reports=[];
+
+saveData();
+
+render();
+
+}
+
+
+/* =====================================================
+STORAGE
+===================================================== */
 
 function saveData(){
 
@@ -2279,6 +3541,10 @@ JSON.stringify(data)
 
 }
 
+
+/* =====================================================
+MODAL SCHLIESSEN
+===================================================== */
 
 function closeModal(){
 
@@ -2291,16 +3557,18 @@ modalType=null;
 }
 
 
-/* =========================
-   HTML SICHERHEIT
-========================= */
+/* =====================================================
+HTML SICHERHEIT
+===================================================== */
 
-function escapeHtml(value){
+function esc(value){
 
-return String(value ?? "")
+return String(
+value ?? ""
+)
 .replace(
 /[&<>"']/g,
-char=>({
+c=>({
 
 "&":"&amp;",
 "<":"&lt;",
@@ -2308,10 +3576,39 @@ char=>({
 '"':"&quot;",
 "'":"&#039;"
 
-}[char])
+}[c])
 );
 
 }
+
+
+function emptyRow(columns){
+
+return `
+
+<tr>
+
+<td
+colspan="${columns}"
+class="empty"
+>
+
+Keine Einträge vorhanden.
+
+</td>
+
+</tr>
+
+`;
+
+}
+
+
+/* =====================================================
+START
+===================================================== */
+
+render();
 
 </script>
 
