@@ -7,46 +7,25 @@
 
 <style>
 *{box-sizing:border-box}
-
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#eef3f7;
-    color:#17232e;
-}
-
-button,input,select,textarea{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#eef3f7;color:#17232e}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
 
 .login{
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#062e4b,#087bc1);
+    background:linear-gradient(135deg,#052d49,#087fc7)
 }
 
 .login-box{
     width:420px;
     max-width:92%;
-    background:#fff;
-    padding:32px;
+    background:white;
+    padding:35px;
     border-radius:16px;
-    box-shadow:0 20px 60px rgba(0,0,0,.3);
-}
-
-.login-box h1{
-    margin:0 0 5px;
-}
-
-.login-box h2{
-    margin:0 0 20px;
-    color:#087bc1;
+    box-shadow:0 20px 60px #0005
 }
 
 .login-box input{
@@ -54,32 +33,26 @@ button{
     padding:12px;
     margin:7px 0 15px;
     border:1px solid #d5e0e8;
-    border-radius:8px;
+    border-radius:8px
 }
 
 .primary{
-    border:0;
     background:#087bc1;
     color:white;
+    border:0;
     padding:11px 16px;
     border-radius:8px;
-    font-weight:bold;
+    font-weight:bold
 }
 
 .secondary{
-    border:1px solid #d5e0e8;
     background:white;
+    border:1px solid #d5e0e8;
     padding:10px 15px;
-    border-radius:8px;
+    border-radius:8px
 }
 
-.error{
-    color:#c0392b;
-}
-
-#app{
-    display:none;
-}
+#app{display:none}
 
 .sidebar{
     position:fixed;
@@ -90,167 +63,135 @@ button{
     background:#062e4b;
     color:white;
     padding:20px;
-    overflow-y:auto;
+    overflow-y:auto
 }
 
-.logo{
-    margin-bottom:25px;
-}
+.sidebar h2{margin:0 0 5px}
+.sidebar small{color:#8fd1f5}
 
-.logo b{
-    font-size:18px;
-}
-
-.logo small{
-    color:#80c9f3;
-}
+.nav{margin-top:25px}
 
 .nav button{
-    display:block;
     width:100%;
-    padding:11px;
-    margin:4px 0;
-    border:0;
-    border-radius:8px;
+    text-align:left;
     background:transparent;
     color:white;
-    text-align:left;
+    border:0;
+    padding:12px;
+    border-radius:8px;
+    margin:3px 0
 }
 
 .nav button:hover,
 .nav button.active{
-    background:#087bc1;
+    background:#087bc1
 }
 
 .main{
     margin-left:250px;
-    padding:25px;
+    padding:25px
 }
 
-.header{
+.topbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:25px;
+    margin-bottom:25px
 }
 
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
+.page{display:none}
+.page.active{display:block}
 
 .card{
     background:white;
     border:1px solid #d8e2e9;
-    border-radius:12px;
+    border-radius:13px;
     padding:20px;
-    margin-bottom:15px;
+    margin-bottom:16px
 }
 
 .stats{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:15px;
+    gap:15px
 }
 
 .stat{
     background:white;
     border:1px solid #d8e2e9;
-    border-radius:12px;
-    padding:18px;
+    border-radius:13px;
+    padding:18px
 }
 
 .stat-number{
+    color:#087bc1;
     font-size:30px;
     font-weight:bold;
-    color:#087bc1;
-    margin-top:7px;
+    margin-top:8px
 }
 
 .toolbar{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
-    margin-bottom:15px;
-}
-
-.toolbar input{
-    padding:10px;
-    border:1px solid #d5e0e8;
-    border-radius:8px;
+    margin-bottom:15px
 }
 
 table{
     width:100%;
-    border-collapse:collapse;
+    border-collapse:collapse
 }
 
 th,td{
     padding:11px;
     text-align:left;
-    border-bottom:1px solid #e5ebef;
+    border-bottom:1px solid #e4ebef
 }
 
-th{
-    color:#71808d;
-}
+th{color:#71808d}
 
 .badge{
-    display:inline-block;
-    padding:5px 8px;
+    background:#e5f4ff;
+    color:#0870aa;
+    padding:5px 9px;
     border-radius:20px;
-    background:#e4f3ff;
-    color:#09689f;
-    font-size:12px;
-}
-
-.delete{
-    background:#fde8e6;
-    color:#a42d25;
-    border:0;
-    border-radius:6px;
-    padding:6px 9px;
+    font-size:12px
 }
 
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.65);
+    background:#0009;
     display:none;
     justify-content:center;
     align-items:center;
     padding:20px;
-    z-index:100;
+    z-index:100
 }
 
-.modal.active{
-    display:flex;
-}
+.modal.active{display:flex}
 
 .modal-box{
     background:white;
-    width:700px;
+    width:760px;
     max-width:100%;
     max-height:90vh;
     overflow:auto;
-    padding:25px;
-    border-radius:14px;
+    border-radius:15px;
+    padding:25px
 }
 
 .form-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:15px;
+    gap:15px
 }
 
 .form-group label{
     display:block;
     font-size:13px;
-    color:#71808d;
-    margin-bottom:5px;
+    color:#667581;
+    margin-bottom:5px
 }
 
 .form-group input,
@@ -259,130 +200,125 @@ th{
     width:100%;
     padding:10px;
     border:1px solid #d5e0e8;
-    border-radius:7px;
+    border-radius:8px
 }
 
-.form-group textarea{
-    min-height:100px;
-}
+.form-group textarea{min-height:120px}
 
-.full{
-    grid-column:1/-1;
-}
+.full{grid-column:1/-1}
 
 .modal-actions{
     display:flex;
     justify-content:flex-end;
     gap:10px;
-    margin-top:20px;
+    margin-top:20px
 }
 
 .checkbox-list{
-    display:grid;
-    gap:8px;
-    max-height:200px;
-    overflow:auto;
-    border:1px solid #ddd;
-    padding:10px;
+    border:1px solid #d5e0e8;
     border-radius:8px;
+    padding:10px;
+    max-height:230px;
+    overflow-y:auto
 }
 
 .checkbox-item{
     display:flex;
     align-items:center;
     gap:8px;
+    padding:6px
 }
 
 .checkbox-item input{
-    width:auto;
+    width:auto
 }
 
-@media(max-width:900px){
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
+.vehicle-crew{
+    border:1px solid #dce5ea;
+    border-radius:9px;
+    padding:12px;
+    margin-bottom:10px
 }
 
-@media(max-width:700px){
-    .sidebar{
-        width:65px;
-        padding:8px;
-    }
+.crew-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:8px
+}
 
-    .logo{
-        display:none;
-    }
+.archive-item{
+    border-left:5px solid #087bc1;
+    padding:15px;
+    margin-bottom:12px;
+    background:#f8fbfd;
+    border-radius:8px
+}
 
-    .main{
-        margin-left:65px;
-    }
+.delete{
+    background:#fde8e6;
+    color:#a83227;
+    border:0;
+    padding:7px 10px;
+    border-radius:6px
+}
 
-    .form-grid{
-        grid-template-columns:1fr;
-    }
+@media(max-width:850px){
+    .sidebar{width:70px;padding:10px}
+    .sidebar h2,.sidebar small{display:none}
+    .main{margin-left:70px}
+    .stats{grid-template-columns:1fr 1fr}
+}
 
-    .full{
-        grid-column:auto;
-    }
+@media(max-width:600px){
+    .form-grid{grid-template-columns:1fr}
+    .full{grid-column:auto}
+    .crew-row{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
+<!-- LOGIN -->
+
 <div id="loginPage" class="login">
 
 <div class="login-box">
 
 <h1>Wasserrettung</h1>
-
 <h2>Hansestadt Lübeck</h2>
 
 <p>Interne Verwaltungsplattform</p>
 
 <label>Benutzername</label>
-
-<input
-    id="loginUsername"
-    type="text"
-    value="admin"
->
+<input id="loginUser" value="admin">
 
 <label>Passwort</label>
-
-<input
-    id="loginPassword"
-    type="password"
->
+<input id="loginPassword" type="password">
 
 <button
-    class="primary"
-    style="width:100%"
-    onclick="login()"
+class="primary"
+style="width:100%"
+onclick="login()"
 >
 Anmelden
 </button>
 
-<p id="loginError" class="error"></p>
+<p id="loginError"></p>
 
 </div>
-
 </div>
 
+
+<!-- APP -->
 
 <div id="app">
 
 <aside class="sidebar">
 
-<div class="logo">
-
-<b>Wasserrettung</b>
-
-<br>
-
+<h2>Wasserrettung</h2>
 <small>Hansestadt Lübeck</small>
-
-</div>
 
 <div class="nav">
 
@@ -394,28 +330,36 @@ Anmelden
 👥 Mitarbeiter
 </button>
 
-<button onclick="showPage('duties',this)">
-📅 Dienstplan
+<button onclick="showPage('departments',this)">
+🏢 Abteilungen
 </button>
 
-<button onclick="showPage('courses',this)">
-🎓 Lehrgänge
+<button onclick="showPage('functions',this)">
+🧑‍🚒 Funktionen
 </button>
 
 <button onclick="showPage('qualifications',this)">
 🏅 Qualifikationen
 </button>
 
+<button onclick="showPage('courses',this)">
+🎓 Lehrgänge
+</button>
+
 <button onclick="showPage('vehicles',this)">
-🚤 Fahrzeuge & Boote
+🚤 Fahrzeuge
+</button>
+
+<button onclick="showPage('duties',this)">
+📅 Dienstplan
 </button>
 
 <button onclick="showPage('reports',this)">
-🚨 Einsatzberichte
+🚨 Einsätze
 </button>
 
-<button onclick="showPage('logbook',this)">
-📖 Wachbuch
+<button onclick="showPage('archive',this)">
+📁 Einsatzarchiv
 </button>
 
 </div>
@@ -425,39 +369,28 @@ Anmelden
 
 <main class="main">
 
-<div class="header">
+<div class="topbar">
 
-<h1 id="pageTitle">
-Dashboard
-</h1>
+<h1 id="pageTitle">Dashboard</h1>
 
-<div>
-
-<b>Administrator</b>
-
-<button
-class="secondary"
-onclick="logout()"
->
+<button class="secondary" onclick="logout()">
 Abmelden
 </button>
 
 </div>
 
-</div>
 
+<!-- DASHBOARD -->
 
 <section id="dashboard" class="page active">
 
 <div class="card">
 
-<h2>
-Wasserrettung Hansestadt Lübeck
-</h2>
+<h2>Wasserrettung Hansestadt Lübeck</h2>
 
 <p>
-Zentrale Verwaltungsplattform für Dienstplanung,
-Mitarbeiter, Qualifikationen, Fahrzeuge und Einsätze.
+Zentrale Verwaltung für Personal, Dienste,
+Fahrzeuge, Qualifikationen und Einsätze.
 </p>
 
 </div>
@@ -470,13 +403,13 @@ Mitarbeiter
 </div>
 
 <div class="stat">
-Dienste
-<div id="statDuties" class="stat-number">0</div>
+Fahrzeuge
+<div id="statVehicles" class="stat-number">0</div>
 </div>
 
 <div class="stat">
-Fahrzeuge
-<div id="statVehicles" class="stat-number">0</div>
+Dienste
+<div id="statDuties" class="stat-number">0</div>
 </div>
 
 <div class="stat">
@@ -489,21 +422,17 @@ Einsätze
 </section>
 
 
+<!-- MITARBEITER -->
+
 <section id="members" class="page">
 
 <div class="card">
 
 <div class="toolbar">
 
-<input
-id="memberSearch"
-placeholder="Mitarbeiter suchen..."
-oninput="renderMembers()"
->
-
 <button
 class="primary"
-onclick="openMemberModal()"
+onclick="openModal('member')"
 >
 + Mitarbeiter
 </button>
@@ -516,10 +445,11 @@ onclick="openMemberModal()"
 
 <tr>
 <th>Name</th>
+<th>Dienstgrad</th>
 <th>Funktion</th>
-<th>Einheit</th>
+<th>Abteilung</th>
 <th>Qualifikationen</th>
-<th>Aktion</th>
+<th></th>
 </tr>
 
 </thead>
@@ -533,36 +463,30 @@ onclick="openMemberModal()"
 </section>
 
 
-<section id="duties" class="page">
+<!-- ABTEILUNGEN -->
+
+<section id="departments" class="page">
 
 <div class="card">
 
-<div class="toolbar">
-
 <button
 class="primary"
-onclick="openDutyModal()"
+onclick="openModal('department')"
 >
-+ Dienst erstellen
++ Abteilung
 </button>
-
-</div>
 
 <table>
 
 <thead>
-
 <tr>
-<th>Datum</th>
-<th>Beginn</th>
-<th>Ende</th>
-<th>Dienst</th>
-<th>Ort</th>
+<th>Abteilung</th>
+<th>Beschreibung</th>
+<th></th>
 </tr>
-
 </thead>
 
-<tbody id="dutyTable"></tbody>
+<tbody id="departmentTable"></tbody>
 
 </table>
 
@@ -571,35 +495,30 @@ onclick="openDutyModal()"
 </section>
 
 
-<section id="courses" class="page">
+<!-- FUNKTIONEN -->
+
+<section id="functions" class="page">
 
 <div class="card">
 
-<div class="toolbar">
-
 <button
 class="primary"
-onclick="openCourseModal()"
+onclick="openModal('function')"
 >
-+ Lehrgang
++ Funktion
 </button>
-
-</div>
 
 <table>
 
 <thead>
-
 <tr>
-<th>Lehrgang</th>
-<th>Start</th>
-<th>Ende</th>
-<th>Qualifikation</th>
+<th>Funktion</th>
+<th>Abteilung</th>
+<th></th>
 </tr>
-
 </thead>
 
-<tbody id="courseTable"></tbody>
+<tbody id="functionTable"></tbody>
 
 </table>
 
@@ -607,31 +526,28 @@ onclick="openCourseModal()"
 
 </section>
 
+
+<!-- QUALIFIKATIONEN -->
 
 <section id="qualifications" class="page">
 
 <div class="card">
 
-<div class="toolbar">
-
 <button
 class="primary"
-onclick="openQualificationModal()"
+onclick="openModal('qualification')"
 >
 + Qualifikation
 </button>
 
-</div>
-
 <table>
 
 <thead>
-
 <tr>
 <th>Qualifikation</th>
 <th>Beschreibung</th>
+<th></th>
 </tr>
-
 </thead>
 
 <tbody id="qualificationTable"></tbody>
@@ -643,32 +559,63 @@ onclick="openQualificationModal()"
 </section>
 
 
-<section id="vehicles" class="page">
+<!-- LEHRGÄNGE -->
+
+<section id="courses" class="page">
 
 <div class="card">
 
-<div class="toolbar">
-
 <button
 class="primary"
-onclick="openVehicleModal()"
+onclick="openModal('course')"
 >
-+ Fahrzeug / Boot
++ Lehrgang
 </button>
-
-</div>
 
 <table>
 
 <thead>
+<tr>
+<th>Lehrgang</th>
+<th>Qualifikation</th>
+<th>Start</th>
+<th>Ende</th>
+<th></th>
+</tr>
+</thead>
 
+<tbody id="courseTable"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- FAHRZEUGE -->
+
+<section id="vehicles" class="page">
+
+<div class="card">
+
+<button
+class="primary"
+onclick="openModal('vehicle')"
+>
++ Fahrzeug / Boot
+</button>
+
+<table>
+
+<thead>
 <tr>
 <th>Fahrzeug</th>
 <th>Typ</th>
-<th>Kennzeichen</th>
-<th>Benötigte Qualifikation</th>
+<th>Funkrufname</th>
+<th>Positionen</th>
+<th></th>
 </tr>
-
 </thead>
 
 <tbody id="vehicleTable"></tbody>
@@ -680,6 +627,46 @@ onclick="openVehicleModal()"
 </section>
 
 
+<!-- DIENSTPLAN -->
+
+<section id="duties" class="page">
+
+<div class="card">
+
+<div class="toolbar">
+
+<button
+class="primary"
+onclick="openModal('duty')"
+>
++ Dienst erstellen
+</button>
+
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>Datum</th>
+<th>Dienst</th>
+<th>Uhrzeit</th>
+<th>Fahrzeuge</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="dutyTable"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- EINSÄTZE -->
+
 <section id="reports" class="page">
 
 <div class="card">
@@ -688,9 +675,9 @@ onclick="openVehicleModal()"
 
 <button
 class="primary"
-onclick="openReportModal()"
+onclick="openModal('report')"
 >
-+ Einsatzbericht
+🚨 Neuer Einsatz
 </button>
 
 </div>
@@ -698,16 +685,14 @@ onclick="openReportModal()"
 <table>
 
 <thead>
-
 <tr>
 <th>Einsatznummer</th>
 <th>Datum</th>
 <th>Stichwort</th>
 <th>Ort</th>
 <th>Fahrzeuge</th>
-<th>Besatzung</th>
+<th>Status</th>
 </tr>
-
 </thead>
 
 <tbody id="reportTable"></tbody>
@@ -719,41 +704,15 @@ onclick="openReportModal()"
 </section>
 
 
-<section id="logbook" class="page">
+<!-- ARCHIV -->
+
+<section id="archive" class="page">
 
 <div class="card">
 
-<div class="toolbar">
+<h2>📁 Einsatzarchiv</h2>
 
-<input
-id="logInput"
-placeholder="Wachbucheintrag..."
->
-
-<button
-class="primary"
-onclick="addLog()"
->
-Eintragen
-</button>
-
-</div>
-
-<table>
-
-<thead>
-
-<tr>
-<th>Zeit</th>
-<th>Eintrag</th>
-<th>Autor</th>
-</tr>
-
-</thead>
-
-<tbody id="logTable"></tbody>
-
-</table>
+<div id="archive"></div>
 
 </div>
 
@@ -763,6 +722,8 @@ Eintragen
 
 </div>
 
+
+<!-- MODAL -->
 
 <div id="modal" class="modal">
 
@@ -797,52 +758,47 @@ Speichern
 
 <script>
 
-const STORAGE_KEY =
-"wasserrettung_luebeck_data";
+/* =========================
+   DATEN
+========================= */
+
+const STORAGE =
+"wasserrettung_hansestadt_luebeck";
 
 let data =
 JSON.parse(
-localStorage.getItem(STORAGE_KEY)
+localStorage.getItem(STORAGE)
 ) || {
 
 members:[],
-duties:[],
-courses:[],
+departments:[],
+functions:[],
 qualifications:[],
+courses:[],
 vehicles:[],
-reports:[],
-logs:[]
+duties:[],
+reports:[]
 
 };
 
 let modalType = null;
 
 
-function saveData(){
-
-localStorage.setItem(
-STORAGE_KEY,
-JSON.stringify(data)
-);
-
-}
-
+/* =========================
+   LOGIN
+========================= */
 
 function login(){
 
-const username =
-document.getElementById(
-"loginUsername"
-).value.trim();
+const user =
+document.getElementById("loginUser").value;
 
-const password =
-document.getElementById(
-"loginPassword"
-).value;
+const pass =
+document.getElementById("loginPassword").value;
 
 if(
-username === "admin" &&
-password === "001"
+user === "admin" &&
+pass === "001"
 ){
 
 document.getElementById(
@@ -874,12 +830,16 @@ location.reload();
 }
 
 
+/* =========================
+   NAVIGATION
+========================= */
+
 function showPage(id,button){
 
 document
 .querySelectorAll(".page")
 .forEach(
-p => p.classList.remove("active")
+p=>p.classList.remove("active")
 );
 
 document
@@ -889,32 +849,23 @@ document
 document
 .querySelectorAll(".nav button")
 .forEach(
-b => b.classList.remove("active")
+b=>b.classList.remove("active")
 );
 
-if(button){
-
 button.classList.add("active");
-
-}
 
 const titles={
 
 dashboard:"Dashboard",
-
 members:"Mitarbeiter",
-
-duties:"Dienstplan",
-
-courses:"Lehrgänge",
-
+departments:"Abteilungen",
+functions:"Funktionen",
 qualifications:"Qualifikationen",
-
-vehicles:"Fahrzeuge & Boote",
-
-reports:"Einsatzberichte",
-
-logbook:"Wachbuch"
+courses:"Lehrgänge",
+vehicles:"Fahrzeuge",
+duties:"Dienstplan",
+reports:"Einsätze",
+archive:"Einsatzarchiv"
 
 };
 
@@ -925,20 +876,23 @@ document.getElementById(
 }
 
 
+/* =========================
+   MODAL
+========================= */
+
 function openModal(type){
 
 modalType=type;
 
-const modal =
-document.getElementById("modal");
+document
+.getElementById("modal")
+.classList.add("active");
 
 const title =
 document.getElementById("modalTitle");
 
 const content =
 document.getElementById("modalContent");
-
-modal.classList.add("active");
 
 
 if(type==="member"){
@@ -950,30 +904,60 @@ content.innerHTML=`
 <div class="form-grid">
 
 <div class="form-group">
+
 <label>Name</label>
+
 <input id="f_name">
+
 </div>
 
 <div class="form-group">
-<label>Dienstgrad / Funktion</label>
-<input id="f_role">
+
+<label>Dienstgrad</label>
+
+<input id="f_rank">
+
 </div>
 
 <div class="form-group">
-<label>Einheit</label>
-<input id="f_unit" value="Wasserrettung">
+
+<label>Funktion</label>
+
+<select id="f_function">
+
+<option value="">Keine Funktion</option>
+
+${data.functions.map(
+(f,i)=>`
+
+<option value="${i}">
+${escapeHtml(f.name)}
+</option>
+
+`
+).join("")}
+
+</select>
+
 </div>
 
 <div class="form-group">
-<label>Rolle</label>
 
-<select id="f_access">
+<label>Abteilung</label>
 
-<option>Einsatzkraft</option>
-<option>Führungskraft</option>
-<option>Ausbilder</option>
-<option>Gerätewart</option>
-<option>Admin</option>
+<select id="f_department">
+
+<option value="">Keine Abteilung</option>
+
+${data.departments.map(
+(d,i)=>`
+
+<option value="${i}">
+${escapeHtml(d.name)}
+</option>
+
+`
+).join("")}
 
 </select>
 
@@ -983,10 +967,260 @@ content.innerHTML=`
 
 <label>Qualifikationen</label>
 
+<div class="checkbox-list">
+
+${data.qualifications.map(
+(q,i)=>`
+
+<label class="checkbox-item">
+
 <input
-id="f_qualifications"
-placeholder="z.B. Bootsführer, Sanitätshelfer"
+type="checkbox"
+name="memberQualification"
+value="${i}"
 >
+
+${escapeHtml(q.name)}
+
+</label>
+
+`
+).join("")}
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+if(type==="department"){
+
+title.textContent="Abteilung anlegen";
+
+content.innerHTML=`
+
+<div class="form-group">
+
+<label>Name</label>
+
+<input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Beschreibung</label>
+
+<textarea id="f_description"></textarea>
+
+</div>
+
+`;
+
+}
+
+
+if(type==="function"){
+
+title.textContent="Funktion anlegen";
+
+content.innerHTML=`
+
+<div class="form-group">
+
+<label>Funktion</label>
+
+<input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Abteilung</label>
+
+<select id="f_department">
+
+<option value="">Keine Abteilung</option>
+
+${data.departments.map(
+(d,i)=>`
+
+<option value="${i}">
+${escapeHtml(d.name)}
+</option>
+
+`
+).join("")}
+
+</select>
+
+</div>
+
+`;
+
+}
+
+
+if(type==="qualification"){
+
+title.textContent="Qualifikation anlegen";
+
+content.innerHTML=`
+
+<div class="form-group">
+
+<label>Qualifikation</label>
+
+<input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Beschreibung</label>
+
+<textarea id="f_description"></textarea>
+
+</div>
+
+`;
+
+}
+
+
+if(type==="course"){
+
+title.textContent="Lehrgang anlegen";
+
+content.innerHTML=`
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Lehrgang</label>
+
+<input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Qualifikation</label>
+
+<select id="f_qualification">
+
+${data.qualifications.map(
+(q,i)=>`
+
+<option value="${i}">
+${escapeHtml(q.name)}
+</option>
+
+`
+).join("")}
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Start</label>
+
+<input id="f_start" type="date">
+
+</div>
+
+<div class="form-group">
+
+<label>Ende</label>
+
+<input id="f_end" type="date">
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+if(type==="vehicle"){
+
+title.textContent="Fahrzeug / Boot anlegen";
+
+content.innerHTML=`
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Fahrzeug / Boot</label>
+
+<input id="f_name">
+
+</div>
+
+<div class="form-group">
+
+<label>Typ</label>
+
+<input id="f_type"
+placeholder="ELW, RTB, GW-Wasserrettung...">
+
+</div>
+
+<div class="form-group">
+
+<label>Funkrufname</label>
+
+<input id="f_callsign">
+
+</div>
+
+<div class="form-group">
+
+<label>Benötigte Qualifikation</label>
+
+<select id="f_requiredQualification">
+
+<option value="">
+Keine
+</option>
+
+${data.qualifications.map(
+q=>`
+
+<option>
+${escapeHtml(q.name)}
+</option>
+
+`
+).join("")}
+
+</select>
+
+</div>
+
+<div class="form-group full">
+
+<label>Besatzungspositionen</label>
+
+<input
+id="f_positions"
+placeholder="Einsatzleiter, Führungsassistent, Fahrer"
+>
+
+<p>
+Mehrere Positionen mit Komma trennen.
+</p>
 
 </div>
 
@@ -1006,130 +1240,47 @@ content.innerHTML=`
 <div class="form-grid">
 
 <div class="form-group">
+
 <label>Dienst</label>
-<input id="f_name" value="Wachdienst">
+
+<input id="f_name">
+
 </div>
 
 <div class="form-group">
+
 <label>Datum</label>
+
 <input id="f_date" type="date">
+
 </div>
 
 <div class="form-group">
+
 <label>Beginn</label>
+
 <input id="f_start" type="time">
+
 </div>
 
 <div class="form-group">
+
 <label>Ende</label>
+
 <input id="f_end" type="time">
+
 </div>
 
 <div class="form-group full">
-<label>Ort</label>
-<input id="f_location" value="Hauptwache">
-</div>
+
+<label>Fahrzeuge</label>
+
+<div id="dutyVehicles">
+
+${vehicleSelection("duty")}
 
 </div>
 
-`;
-
-}
-
-
-if(type==="course"){
-
-title.textContent="Lehrgang anlegen";
-
-content.innerHTML=`
-
-<div class="form-grid">
-
-<div class="form-group">
-<label>Lehrgang</label>
-<input id="f_name">
-</div>
-
-<div class="form-group">
-<label>Qualifikation</label>
-<input id="f_qualification">
-</div>
-
-<div class="form-group">
-<label>Start</label>
-<input id="f_start" type="date">
-</div>
-
-<div class="form-group">
-<label>Ende</label>
-<input id="f_end" type="date">
-</div>
-
-<div class="form-group full">
-<label>Beschreibung</label>
-<textarea id="f_description"></textarea>
-</div>
-
-</div>
-
-`;
-
-}
-
-
-if(type==="qualification"){
-
-title.textContent="Qualifikation anlegen";
-
-content.innerHTML=`
-
-<div class="form-group">
-
-<label>Name</label>
-
-<input id="f_name">
-
-</div>
-
-<div class="form-group">
-
-<label>Beschreibung</label>
-
-<textarea id="f_description"></textarea>
-
-</div>
-
-`;
-
-}
-
-
-if(type==="vehicle"){
-
-title.textContent="Fahrzeug / Boot anlegen";
-
-content.innerHTML=`
-
-<div class="form-grid">
-
-<div class="form-group">
-<label>Fahrzeug / Boot</label>
-<input id="f_name">
-</div>
-
-<div class="form-group">
-<label>Typ</label>
-<input id="f_type">
-</div>
-
-<div class="form-group">
-<label>Kennzeichen</label>
-<input id="f_plate">
-</div>
-
-<div class="form-group">
-<label>Benötigte Qualifikation</label>
-<input id="f_qualification">
 </div>
 
 </div>
@@ -1141,87 +1292,51 @@ content.innerHTML=`
 
 if(type==="report"){
 
-title.textContent="Einsatzbericht";
+title.textContent="Neuer Einsatz";
 
 content.innerHTML=`
 
 <div class="form-grid">
 
 <div class="form-group">
+
 <label>Einsatznummer</label>
+
 <input id="f_number">
+
 </div>
 
 <div class="form-group">
-<label>Datum</label>
-<input id="f_date" type="date">
+
+<label>Datum / Uhrzeit</label>
+
+<input id="f_date" type="datetime-local">
+
 </div>
 
 <div class="form-group">
-<label>Stichwort</label>
+
+<label>Einsatzstichwort</label>
+
 <input id="f_keyword">
+
 </div>
 
 <div class="form-group">
+
 <label>Einsatzort</label>
+
 <input id="f_location">
-</div>
-
-<div class="form-group full">
-
-<label>Fahrzeuge / Boote</label>
-
-<div class="checkbox-list">
-
-${data.vehicles.map(
-(v,i)=>`
-
-<label class="checkbox-item">
-
-<input
-type="checkbox"
-name="vehicle"
-value="${i}"
->
-
-${escapeHtml(v.name)}
--
-${escapeHtml(v.plate)}
-
-</label>
-
-`
-).join("")}
-
-</div>
 
 </div>
 
 <div class="form-group full">
 
-<label>Besatzung</label>
+<label>Fahrzeuge und Besatzungen</label>
 
-<div class="checkbox-list">
+<div id="reportVehicles">
 
-${data.members.map(
-(m,i)=>`
-
-<label class="checkbox-item">
-
-<input
-type="checkbox"
-name="crew"
-value="${i}"
->
-
-${escapeHtml(m.name)}
--
-${escapeHtml(m.role)}
-
-</label>
-
-`
-).join("")}
+${vehicleSelection("report")}
 
 </div>
 
@@ -1244,83 +1359,236 @@ ${escapeHtml(m.role)}
 }
 
 
-function closeModal(){
+/* =========================
+   FAHRZEUG-AUSWAHL
+========================= */
 
-document
-.getElementById("modal")
-.classList.remove("active");
+function vehicleSelection(prefix){
 
-modalType=null;
+if(data.vehicles.length===0){
+
+return `
+<p>
+Noch keine Fahrzeuge angelegt.
+Lege zuerst unter „Fahrzeuge“ ein Fahrzeug an.
+</p>
+`;
+
+}
+
+return data.vehicles.map(
+(v,i)=>{
+
+const positions =
+(v.positions || "")
+.split(",")
+.map(x=>x.trim())
+.filter(Boolean);
+
+return `
+
+<div class="vehicle-crew">
+
+<label class="checkbox-item">
+
+<input
+type="checkbox"
+name="${prefix}Vehicle"
+value="${i}"
+onchange="toggleCrew('${prefix}',${i})"
+>
+
+<b>
+${escapeHtml(v.name)}
+</b>
+
+&nbsp;
+
+${escapeHtml(v.callsign)}
+
+</label>
+
+<div
+id="${prefix}Crew${i}"
+style="display:none"
+>
+
+${positions.length ?
+
+positions.map(
+(pos,p)=>`
+
+<div class="crew-row">
+
+<div>
+
+<label>
+${escapeHtml(pos)}
+</label>
+
+</div>
+
+<select
+id="${prefix}_${i}_${p}"
+class="${prefix}CrewSelect"
+data-vehicle="${i}"
+data-position="${escapeHtml(pos)}"
+>
+
+${eligibleMembers(v).map(
+m=>`
+
+<option value="${m.index}">
+${escapeHtml(m.name)}
+</option>
+
+`
+).join("")}
+
+</select>
+
+</div>
+
+`
+).join("")
+
+:
+
+"<p>Keine Besatzungspositionen definiert.</p>"
+
+}
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
 
 }
 
 
-function get(id){
+function toggleCrew(prefix,index){
 
-return document.getElementById(id);
+const checked =
+document.querySelector(
+`input[name="${prefix}Vehicle"][value="${index}"]`
+).checked;
+
+document.getElementById(
+`${prefix}Crew${index}`
+).style.display =
+checked ? "block" : "none";
 
 }
 
+
+/* =========================
+   QUALIFIKATIONS-CHECK
+========================= */
+
+function eligibleMembers(vehicle){
+
+const required =
+(vehicle.required || "")
+.toLowerCase()
+.trim();
+
+return data.members
+.map(
+(m,index)=>({
+
+...m,
+index:index
+
+})
+)
+.filter(
+m=>{
+
+if(!required)
+return true;
+
+return String(m.qualifications)
+.toLowerCase()
+.includes(required);
+
+}
+);
+
+}
+
+
+/* =========================
+   SPEICHERN
+========================= */
 
 function saveModal(){
 
+const get=id =>
+document.getElementById(id)?.value || "";
+
+
 if(modalType==="member"){
+
+const qualifications =
+[
+...document.querySelectorAll(
+'input[name="memberQualification"]:checked'
+)
+]
+.map(
+x=>data.qualifications[
+Number(x.value)
+]?.name
+)
+.filter(Boolean);
+
 
 data.members.push({
 
-name:get("f_name").value,
+name:get("f_name"),
 
-role:get("f_role").value,
+rank:get("f_rank"),
 
-unit:get("f_unit").value,
+function:data.functions[
+Number(get("f_function"))
+]?.name || "",
 
-access:get("f_access").value,
+department:data.departments[
+Number(get("f_department"))
+]?.name || "",
 
-qualifications:get(
-"f_qualifications"
-).value
-
-});
-
-}
-
-
-if(modalType==="duty"){
-
-data.duties.push({
-
-name:get("f_name").value,
-
-date:get("f_date").value,
-
-start:get("f_start").value,
-
-end:get("f_end").value,
-
-location:get("f_location").value
+qualifications:qualifications
 
 });
 
 }
 
 
-if(modalType==="course"){
+if(modalType==="department"){
 
-data.courses.push({
+data.departments.push({
 
-name:get("f_name").value,
+name:get("f_name"),
 
-qualification:get(
-"f_qualification"
-).value,
+description:get("f_description")
 
-start:get("f_start").value,
+});
 
-end:get("f_end").value,
+}
 
-description:get(
-"f_description"
-).value
+
+if(modalType==="function"){
+
+data.functions.push({
+
+name:get("f_name"),
+
+department:data.departments[
+Number(get("f_department"))
+]?.name || ""
 
 });
 
@@ -1331,11 +1599,28 @@ if(modalType==="qualification"){
 
 data.qualifications.push({
 
-name:get("f_name").value,
+name:get("f_name"),
 
-description:get(
-"f_description"
-).value
+description:get("f_description")
+
+});
+
+}
+
+
+if(modalType==="course"){
+
+data.courses.push({
+
+name:get("f_name"),
+
+qualification:data.qualifications[
+Number(get("f_qualification"))
+]?.name || "",
+
+start:get("f_start"),
+
+end:get("f_end")
 
 });
 
@@ -1346,15 +1631,34 @@ if(modalType==="vehicle"){
 
 data.vehicles.push({
 
-name:get("f_name").value,
+name:get("f_name"),
 
-type:get("f_type").value,
+type:get("f_type"),
 
-plate:get("f_plate").value,
+callsign:get("f_callsign"),
 
-qualification:get(
-"f_qualification"
-).value
+required:get("f_requiredQualification"),
+
+positions:get("f_positions")
+
+});
+
+}
+
+
+if(modalType==="duty"){
+
+data.duties.push({
+
+name:get("f_name"),
+
+date:get("f_date"),
+
+start:get("f_start"),
+
+end:get("f_end"),
+
+vehicles:collectVehicleCrew("duty")
 
 });
 
@@ -1363,43 +1667,21 @@ qualification:get(
 
 if(modalType==="report"){
 
-const vehicles =
-[
-...document.querySelectorAll(
-'input[name="vehicle"]:checked'
-)
-].map(
-x=>data.vehicles[
-Number(x.value)
-].name
-);
-
-const crew =
-[
-...document.querySelectorAll(
-'input[name="crew"]:checked'
-)
-].map(
-x=>data.members[
-Number(x.value)
-].name
-);
-
 data.reports.push({
 
-number:get("f_number").value,
+number:get("f_number"),
 
-date:get("f_date").value,
+date:get("f_date"),
 
-keyword:get("f_keyword").value,
+keyword:get("f_keyword"),
 
-location:get("f_location").value,
+location:get("f_location"),
 
-vehicles:vehicles,
+vehicles:collectVehicleCrew("report"),
 
-crew:crew,
+report:get("f_report"),
 
-report:get("f_report").value
+status:"Abgeschlossen"
 
 });
 
@@ -1415,13 +1697,565 @@ render();
 }
 
 
-function deleteItem(type,index){
+/* =========================
+   BESATZUNG SAMMELN
+========================= */
 
-if(!confirm("Eintrag wirklich löschen?")){
+function collectVehicleCrew(prefix){
 
-return;
+const selected =
+[
+...document.querySelectorAll(
+`input[name="${prefix}Vehicle"]:checked`
+)
+];
+
+return selected.map(
+checkbox=>{
+
+const index =
+Number(checkbox.value);
+
+const vehicle =
+data.vehicles[index];
+
+const positions =
+(vehicle.positions || "")
+.split(",")
+.map(x=>x.trim())
+.filter(Boolean);
+
+const crew =
+positions.map(
+(pos,p)=>{
+
+const select =
+document.getElementById(
+`${prefix}_${index}_${p}`
+);
+
+const member =
+data.members[
+Number(select?.value)
+];
+
+return {
+
+position:pos,
+
+member:member
+? member.name
+: ""
+
+};
+
+});
+
+return {
+
+vehicle:vehicle.name,
+
+callsign:vehicle.callsign,
+
+crew:crew
+
+};
+
+});
 
 }
+
+
+/* =========================
+   RENDER
+========================= */
+
+function render(){
+
+document.getElementById(
+"statMembers"
+).textContent =
+data.members.length;
+
+document.getElementById(
+"statVehicles"
+).textContent =
+data.vehicles.length;
+
+document.getElementById(
+"statDuties"
+).textContent =
+data.duties.length;
+
+document.getElementById(
+"statReports"
+).textContent =
+data.reports.length;
+
+
+/* Mitarbeiter */
+
+document.getElementById(
+"memberTable"
+).innerHTML =
+data.members.map(
+(m,i)=>`
+
+<tr>
+
+<td>
+${escapeHtml(m.name)}
+</td>
+
+<td>
+${escapeHtml(m.rank)}
+</td>
+
+<td>
+${escapeHtml(m.function)}
+</td>
+
+<td>
+${escapeHtml(m.department)}
+</td>
+
+<td>
+${m.qualifications
+.map(
+q=>`<span class="badge">${escapeHtml(q)}</span>`
+)
+.join(" ")}
+</td>
+
+<td>
+
+<button
+class="delete"
+onclick="deleteItem('members',${i})"
+>
+Löschen
+</button>
+
+</td>
+
+</tr>
+
+`
+).join("");
+
+
+
+/* Abteilungen */
+
+document.getElementById(
+"departmentTable"
+).innerHTML =
+data.departments.map(
+(d,i)=>`
+
+<tr>
+
+<td>
+${escapeHtml(d.name)}
+</td>
+
+<td>
+${escapeHtml(d.description)}
+</td>
+
+<td>
+
+<button
+class="delete"
+onclick="deleteItem('departments',${i})"
+>
+Löschen
+</button>
+
+</td>
+
+</tr>
+
+`
+).join("");
+
+
+
+/* Funktionen */
+
+document.getElementById(
+"functionTable"
+).innerHTML =
+data.functions.map(
+(f,i)=>`
+
+<tr>
+
+<td>
+${escapeHtml(f.name)}
+</td>
+
+<td>
+${escapeHtml(f.department)}
+</td>
+
+<td>
+
+<button
+class="delete"
+onclick="deleteItem('functions',${i})"
+>
+Löschen
+</button>
+
+</td>
+
+</tr>
+
+`
+).join("");
+
+
+
+/* Qualifikationen */
+
+document.getElementById(
+"qualificationTable"
+).innerHTML =
+data.qualifications.map(
+(q,i)=>`
+
+<tr>
+
+<td>
+${escapeHtml(q.name)}
+</td>
+
+<td>
+${escapeHtml(q.description)}
+</td>
+
+<td>
+
+<button
+class="delete"
+onclick="deleteItem('qualifications',${i})"
+>
+Löschen
+</button>
+
+</td>
+
+</tr>
+
+`
+).join("");
+
+
+
+/* Lehrgänge */
+
+document.getElementById(
+"courseTable"
+).innerHTML =
+data.courses.map(
+(c,i)=>`
+
+<tr>
+
+<td>
+${escapeHtml(c.name)}
+</td>
+
+<td>
+${escapeHtml(c.qualification)}
+</td>
+
+<td>
+${escapeHtml(c.start)}
+</td>
+
+<td>
+${escapeHtml(c.end)}
+</td>
+
+<td>
+
+<button
+class="delete"
+onclick="deleteItem('courses',${i})"
+>
+Löschen
+</button>
+
+</td>
+
+</tr>
+
+`
+).join("");
+
+
+
+/* Fahrzeuge */
+
+document.getElementById(
+"vehicleTable"
+).innerHTML =
+data.vehicles.map(
+(v,i)=>`
+
+<tr>
+
+<td>
+${escapeHtml(v.name)}
+</td>
+
+<td>
+${escapeHtml(v.type)}
+</td>
+
+<td>
+${escapeHtml(v.callsign)}
+</td>
+
+<td>
+${escapeHtml(v.positions)}
+</td>
+
+<td>
+
+<button
+class="delete"
+onclick="deleteItem('vehicles',${i})"
+>
+Löschen
+</button>
+
+</td>
+
+</tr>
+
+`
+).join("");
+
+
+
+/* Dienste */
+
+document.getElementById(
+"dutyTable"
+).innerHTML =
+data.duties.map(
+(d,i)=>`
+
+<tr>
+
+<td>
+${escapeHtml(d.date)}
+</td>
+
+<td>
+${escapeHtml(d.name)}
+</td>
+
+<td>
+${escapeHtml(d.start)}
+-
+${escapeHtml(d.end)}
+</td>
+
+<td>
+
+${formatVehicles(d.vehicles)}
+
+</td>
+
+<td>
+
+<button
+class="delete"
+onclick="deleteItem('duties',${i})"
+>
+Löschen
+</button>
+
+</td>
+
+</tr>
+
+`
+).join("");
+
+
+
+/* Einsätze */
+
+document.getElementById(
+"reportTable"
+).innerHTML =
+data.reports.map(
+(r,i)=>`
+
+<tr>
+
+<td>
+${escapeHtml(r.number)}
+</td>
+
+<td>
+${escapeHtml(r.date)}
+</td>
+
+<td>
+${escapeHtml(r.keyword)}
+</td>
+
+<td>
+${escapeHtml(r.location)}
+</td>
+
+<td>
+${formatVehicles(r.vehicles)}
+</td>
+
+<td>
+
+<span class="badge">
+${escapeHtml(r.status)}
+</span>
+
+</td>
+
+</tr>
+
+`
+).join("");
+
+
+
+/* Archiv */
+
+document.getElementById(
+"archive"
+).innerHTML =
+data.reports
+.map(
+r=>`
+
+<div class="archive-item">
+
+<h3>
+🚨 ${escapeHtml(r.number)}
+-
+${escapeHtml(r.keyword)}
+</h3>
+
+<p>
+
+<b>Datum:</b>
+${escapeHtml(r.date)}
+
+<br>
+
+<b>Ort:</b>
+${escapeHtml(r.location)}
+
+</p>
+
+<h4>Fahrzeuge & Besatzung</h4>
+
+${formatVehiclesDetailed(r.vehicles)}
+
+<h4>Einsatzbericht</h4>
+
+<p>
+${escapeHtml(r.report)}
+</p>
+
+</div>
+
+`
+)
+.join("")
+||
+"<p>Noch keine Einsätze archiviert.</p>";
+
+}
+
+
+/* =========================
+   FORMATIERUNG
+========================= */
+
+function formatVehicles(vehicles){
+
+return vehicles
+.map(
+v=>`
+
+<span class="badge">
+
+${escapeHtml(v.vehicle)}
+
+</span>
+
+`
+)
+.join(" ");
+
+}
+
+
+function formatVehiclesDetailed(vehicles){
+
+return vehicles
+.map(
+v=>`
+
+<div style="margin-bottom:12px">
+
+<b>
+🚤 ${escapeHtml(v.vehicle)}
+</b>
+
+<br>
+
+${v.crew.map(
+c=>`
+
+&nbsp;&nbsp;
+${escapeHtml(c.position)}:
+<b>
+${escapeHtml(c.member)}
+</b>
+
+<br>
+
+`
+).join("")}
+
+</div>
+
+`
+)
+.join("");
+
+}
+
+
+/* =========================
+   LÖSCHEN
+========================= */
+
+function deleteItem(type,index){
+
+if(
+!confirm(
+"Eintrag wirklich löschen?"
+)
+)
+return;
 
 data[type].splice(index,1);
 
@@ -1432,330 +2266,52 @@ render();
 }
 
 
-function addLog(){
+/* =========================
+   STORAGE
+========================= */
 
-const input =
-get("logInput");
+function saveData(){
 
-if(!input.value.trim()){
-
-return;
-
-}
-
-data.logs.push({
-
-time:new Date().toLocaleString(
-"de-DE"
-),
-
-text:input.value,
-
-author:"admin"
-
-});
-
-input.value="";
-
-saveData();
-
-render();
+localStorage.setItem(
+STORAGE,
+JSON.stringify(data)
+);
 
 }
 
 
-function renderMembers(){
+function closeModal(){
 
-const search =
-(get("memberSearch")?.value || "")
-.toLowerCase();
+document
+.getElementById("modal")
+.classList.remove("active");
 
-get("memberTable").innerHTML =
-data.members
-.map(
-(m,i)=>({
-
-m,i
-
-})
-)
-.filter(
-x =>
-x.m.name
-.toLowerCase()
-.includes(search)
-)
-.map(
-x=>`
-
-<tr>
-
-<td>
-${escapeHtml(x.m.name)}
-</td>
-
-<td>
-${escapeHtml(x.m.role)}
-</td>
-
-<td>
-${escapeHtml(x.m.unit)}
-</td>
-
-<td>
-${escapeHtml(x.m.qualifications)}
-</td>
-
-<td>
-
-<button
-class="delete"
-onclick="deleteItem('members',${x.i})"
->
-Löschen
-</button>
-
-</td>
-
-</tr>
-
-`
-)
-.join("");
+modalType=null;
 
 }
 
 
-function render(){
-
-get("statMembers").textContent =
-data.members.length;
-
-get("statDuties").textContent =
-data.duties.length;
-
-get("statVehicles").textContent =
-data.vehicles.length;
-
-get("statReports").textContent =
-data.reports.length;
-
-
-renderMembers();
-
-
-get("dutyTable").innerHTML =
-data.duties
-.map(
-(d,i)=>`
-
-<tr>
-
-<td>${escapeHtml(d.date)}</td>
-
-<td>
-${escapeHtml(d.start)}
--
-${escapeHtml(d.end)}
-</td>
-
-<td>${escapeHtml(d.name)}</td>
-
-<td>${escapeHtml(d.location)}</td>
-
-</tr>
-
-`
-)
-.join("");
-
-
-get("courseTable").innerHTML =
-data.courses
-.map(
-c=>`
-
-<tr>
-
-<td>${escapeHtml(c.name)}</td>
-
-<td>
-${escapeHtml(c.start)}
--
-${escapeHtml(c.end)}
-</td>
-
-<td>${escapeHtml(c.qualification)}</td>
-
-</tr>
-
-`
-)
-.join("");
-
-
-get("qualificationTable").innerHTML =
-data.qualifications
-.map(
-q=>`
-
-<tr>
-
-<td>${escapeHtml(q.name)}</td>
-
-<td>${escapeHtml(q.description)}</td>
-
-</tr>
-
-`
-)
-.join("");
-
-
-get("vehicleTable").innerHTML =
-data.vehicles
-.map(
-(v,i)=>`
-
-<tr>
-
-<td>${escapeHtml(v.name)}</td>
-
-<td>${escapeHtml(v.type)}</td>
-
-<td>${escapeHtml(v.plate)}</td>
-
-<td>${escapeHtml(v.qualification)}</td>
-
-</tr>
-
-`
-)
-.join("");
-
-
-get("reportTable").innerHTML =
-data.reports
-.map(
-r=>`
-
-<tr>
-
-<td>${escapeHtml(r.number)}</td>
-
-<td>${escapeHtml(r.date)}</td>
-
-<td>${escapeHtml(r.keyword)}</td>
-
-<td>${escapeHtml(r.location)}</td>
-
-<td>
-${r.vehicles
-.map(escapeHtml)
-.join(", ")}
-</td>
-
-<td>
-${r.crew
-.map(escapeHtml)
-.join(", ")}
-</td>
-
-</tr>
-
-`
-)
-.join("");
-
-
-get("logTable").innerHTML =
-data.logs
-.map(
-l=>`
-
-<tr>
-
-<td>${escapeHtml(l.time)}</td>
-
-<td>${escapeHtml(l.text)}</td>
-
-<td>${escapeHtml(l.author)}</td>
-
-</tr>
-
-`
-)
-.join("");
-
-}
-
+/* =========================
+   HTML SICHERHEIT
+========================= */
 
 function escapeHtml(value){
 
 return String(value ?? "")
 .replace(
 /[&<>"']/g,
-char =>
-({
+char=>({
+
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
 '"':"&quot;",
 "'":"&#039;"
+
 }[char])
 );
 
 }
-
-
-function openMemberModal(){
-
-openModal("member");
-
-}
-
-
-function openDutyModal(){
-
-openModal("duty");
-
-}
-
-
-function openCourseModal(){
-
-openModal("course");
-
-}
-
-
-function openQualificationModal(){
-
-openModal("qualification");
-
-}
-
-
-function openVehicleModal(){
-
-openModal("vehicle");
-
-}
-
-
-function openReportModal(){
-
-openModal("report");
-
-}
-
-
-document
-.getElementById("memberSearch")
-.addEventListener(
-"input",
-renderMembers
-);
 
 </script>
 
